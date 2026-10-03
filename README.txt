@@ -3,12 +3,14 @@ UNBROKEN CLOSERS — unbrokenclosers.com
 DEPLOY
 1. Drag this whole folder onto Netlify (netlify.toml sets security headers, caching and short links).
 2. Domain settings > add unbrokenclosers.com (www redirects to the main domain automatically).
-3. Forms: Netlify detects booking, awards, newsletter, newsletter-notes, objection-card and assessment.
+3. Forms: Netlify detects booking, awards, newsletter, newsletter-notes, objection-card, assessment, nominate and events-notify.
    Turn on email alerts: Site configuration > Forms > Form notifications.
 4. Google Search Console: submit https://unbrokenclosers.com/sitemap.xml
 
 SHORT LINKS (for business cards, Objection Armor Cards and social bios)
-  unbrokenclosers.com/workshop  -> book a free workshop
+  unbrokenclosers.com/workshop   -> free workshop page
+  unbrokenclosers.com/assessment -> Unbroken Assessment
+  unbrokenclosers.com/tracker    -> printable Daily Tracker
   unbrokenclosers.com/quiz      -> objection quiz
   unbrokenclosers.com/card      -> free Objection Armor Card
   unbrokenclosers.com/book      -> booking calendar
@@ -29,7 +31,7 @@ LOGO FILES (img/)       mark.svg (icon), seal.svg / seal.png (emblem for awards,
                         og-image.png (link preview image), favicons and app icons.
 
 CACHE
-After editing CSS or JS, change ?v=20261003d in the HTML files to a new value so browsers load the update.
+After editing CSS or JS, change ?v=20261003e in the HTML files to a new value so browsers load the update.
 
 UNBROKEN ASSESSMENT (js/assessment.js)
 - The 8 inner objections, their book chapters, stories and first steps live at the top of the file. Edit the
@@ -38,3 +40,21 @@ UNBROKEN ASSESSMENT (js/assessment.js)
 
 COLORS
 Book cover palette: royal blue #2261a4, red #d9504e, deep red #af3544 (buttons), navy #12233b, cream #f4f2ec.
+
+HOUSE STYLE (applied automatically when the site is built)
+- Headings, menu labels and page titles: Title Case (AP style).
+- Program names always capitalized: Free Team Workshop, Team Program, Closer's Circle, Half-Day Bootcamp,
+  Manager Coaching, Unbroken Assessment, Objection Armor Card, Field Notes, Daily Tracker and so on.
+- Body text and buttons: sentence case. Quotes and apostrophes are curly (“ ” ’), never straight.
+- If you edit an HTML file by hand, follow the same rules so pages stay consistent.
+
+NEW SETTINGS (js/config.js)
+- events: list open bootcamps; the Events page shows a "notify me" form when empty.
+- hallOfFame: Closer of the Month winners for the Awards page (real winners, with their OK).
+
+ANALYTICS CONSENT
+When ga4Id is set, visitors see a small consent notice. Google Analytics loads only after they accept.
+
+PRIVACY AND TERMS
+privacy.html and terms.html are plain-language starting points, not legal advice. Have them reviewed
+before you rely on them, especially once you take payments.

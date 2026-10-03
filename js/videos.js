@@ -5,24 +5,32 @@
   Set vertical: false for a regular wide video.
 */
 window.UC_VIDEOS = [
-  { title: "The price objection is never about price", category: "Objections", length: "0:58", youtubeId: "", vertical: true,
+  { title: "The Price Objection Is Never About Price", category: "Objections", length: "0:58", youtubeId: "", vertical: true,
     summary: "What the customer is really afraid of, and the one question that gets the deal moving again." },
-  { title: "\"I need to talk to my spouse\": invite them in", category: "Objections", length: "1:02", youtubeId: "", vertical: true,
+  { title: "“I Need to Talk to My Spouse”: Invite Them In", category: "Objections", length: "1:02", youtubeId: "", vertical: true,
     summary: "Stop fighting the spouse objection. Bring the absent decision-maker into the conversation." },
-  { title: "Selling to the buyer who already knows invoice", category: "Closing", length: "1:10", youtubeId: "", vertical: true,
-    summary: "Informed buyers aren't the enemy. Sell on trust and value when they've done their homework." },
-  { title: "What the lot taught me about getting back up", category: "Story", length: "1:30", youtubeId: "", vertical: true,
+  { title: "Selling to the Buyer Who Already Knows Invoice", category: "Closing", length: "1:10", youtubeId: "", vertical: true,
+    summary: "Informed buyers aren’t the enemy. Sell on trust and value when they’ve done their homework." },
+  { title: "What the Lot Taught Me About Getting Back Up", category: "Story", length: "1:30", youtubeId: "", vertical: true,
     summary: "The worst month of my sales career, and the habit that pulled me out of it." },
-  { title: "Why your best rep quits in month three", category: "For managers", length: "1:15", youtubeId: "", vertical: true,
+  { title: "Why Your Best Rep Quits in Month Three", category: "For managers", length: "1:15", youtubeId: "", vertical: true,
     summary: "The three signals a new rep is about to walk, and what to say before they do." },
-  { title: "The two-minute morning huddle", category: "For managers", length: "0:55", youtubeId: "", vertical: true,
+  { title: "The Two-Minute Morning Huddle", category: "For managers", length: "0:55", youtubeId: "", vertical: true,
     summary: "One skill, one rep, one practice round. Run it before the doors open." },
-  { title: "Ask for the sale like you mean it", category: "Closing", length: "0:49", youtubeId: "", vertical: true,
-    summary: "Three simple closes that don't feel pushy, for you or the customer." },
-  { title: "\"I'll think about it\" means \"I'm not sure yet\"", category: "Objections", length: "0:52", youtubeId: "", vertical: true,
-    summary: "Find the part they're unsure about instead of letting them walk off the lot." },
-  { title: "Getting a \"no\" is part of the job", category: "Mindset", length: "1:05", youtubeId: "", vertical: true,
-    summary: "What military life taught me about rejection, and why the next up is a fresh start." }
+  { title: "Ask for the Sale Like You Mean It", category: "Closing", length: "0:49", youtubeId: "", vertical: true,
+    summary: "Three simple closes that don’t feel pushy, for you or the customer." },
+  { title: "“I’ll Think About It” Means “I’m Not Sure Yet”", category: "Objections", length: "0:52", youtubeId: "", vertical: true,
+    summary: "Find the part they’re unsure about instead of letting them walk off the lot." },
+  { title: "Getting a “No” Is Part of the Job", category: "Mindset", length: "1:05", youtubeId: "", vertical: true,
+    summary: "What military life taught me about rejection, and why the next up is a fresh start." },
+  { title: "Grow Where You’re Planted", category: "From the book", length: "1:10", youtubeId: "", vertical: true,
+    summary: "Stop blaming the store. The lesson from Landing on Earth, applied to the sales floor." },
+  { title: "The Commission Love Affair", category: "From the book", length: "1:05", youtubeId: "", vertical: true,
+    summary: "Love the customer and the commission follows. Love the commission and the customer leaves." },
+  { title: "Iron Sharpens Iron", category: "From the book", length: "0:58", youtubeId: "", vertical: true,
+    summary: "Why the people you eat lunch with decide how much you sell." },
+  { title: "Most People Quit Too Soon", category: "From the book", length: "1:12", youtubeId: "", vertical: true,
+    summary: "Track three numbers a day and you’ll see you’re winning before the paycheck does." }
 ];
 
 (function () {

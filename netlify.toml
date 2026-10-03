@@ -9,6 +9,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com; frame-src https://www.youtube-nocookie.com https://calendly.com https://cal.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self'; base-uri 'self'; frame-ancestors 'self'"
 
 [[headers]]
   for = "/css/*"
@@ -33,8 +34,18 @@
 
 [[redirects]]
   from = "/workshop"
-  to = "/book.html?session=workshop"
-  status = 302
+  to = "/workshop.html"
+  status = 301
+
+[[redirects]]
+  from = "/assessment"
+  to = "/assessment.html"
+  status = 301
+
+[[redirects]]
+  from = "/tracker"
+  to = "/daily-tracker.html"
+  status = 301
 
 [[redirects]]
   from = "/quiz"

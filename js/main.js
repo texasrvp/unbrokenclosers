@@ -6,7 +6,7 @@
   window.UC_track = function (name, params) {
     if (typeof window.gtag === "function") window.gtag("event", name, params || {});
   };
-  if (cfg.ga4Id) {
+  function loadAnalytics() {
     var s = document.createElement("script");
     s.async = true;
     s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(cfg.ga4Id);
@@ -14,7 +14,29 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
-    window.gtag("config", cfg.ga4Id);
+    window.gtag("config", cfg.ga4Id, { anonymize_ip: true });
+  }
+  if (cfg.ga4Id) {
+    var consent = null;
+    try { consent = localStorage.getItem("uc_consent"); } catch (e) {}
+    if (consent === "yes") loadAnalytics();
+    else if (consent !== "no") {
+      var cb = document.createElement("div");
+      cb.className = "consent";
+      cb.setAttribute("role", "region");
+      cb.setAttribute("aria-label", "Analytics consent");
+      cb.innerHTML = '<p>We use Google Analytics to see which pages help people most. No ads, no selling your data. <a href="privacy.html">Privacy policy</a></p>' +
+        '<div class="btn-row"><button type="button" class="btn btn-stripe" data-c="yes">Accept</button><button type="button" class="btn btn-ghost" data-c="no">No thanks</button></div>';
+      document.body.appendChild(cb);
+      cb.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-c]");
+        if (!b) return;
+        var v = b.getAttribute("data-c");
+        try { localStorage.setItem("uc_consent", v); } catch (err) {}
+        if (v === "yes") loadAnalytics();
+        cb.remove();
+      });
+    }
   }
   document.addEventListener("click", function (e) {
     var a = e.target.closest("a");
@@ -50,7 +72,9 @@
       nav.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.textContent = open ? "Close" : "Menu";
+      document.body.classList.toggle("nav-open", open);
     };
+    nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
     toggle.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("open")) { setOpen(false); toggle.focus(); }
@@ -286,6 +310,94 @@
         document.body.appendChild(a); a.click(); a.remove();
         setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
       });
+    }
+  }
+
+  /* ---------- Copy buttons ---------- */
+  function copyText(text, btn) {
+    var done = function () {
+      var old = btn.textContent; btn.textContent = "Copied"; setTimeout(function () { btn.textContent = old; }, 1600);
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+    else fallback();
+    function fallback() {
+      var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "absolute"; ta.style.left = "-9999px";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      ta.remove();
+    }
+  }
+  window.UC_copy = copyText;
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-copy], [data-copy-url]");
+    if (!b) return;
+    if (b.hasAttribute("data-copy-url")) return copyText(b.getAttribute("data-copy-url"), b);
+    var text = Array.prototype.map.call(document.querySelectorAll(b.getAttribute("data-copy")), function (el) { return el.textContent.trim(); }).join("\n\n");
+    copyText(text, b);
+  });
+
+  /* ---------- Reading progress on articles ---------- */
+  var prog = document.querySelector(".read-progress span");
+  var article = document.querySelector("article.prose");
+  if (prog && article) {
+    var onRead = function () {
+      var r = article.getBoundingClientRect();
+      var total = r.height - window.innerHeight;
+      var pct = total > 0 ? Math.min(100, Math.max(0, -r.top / total * 100)) : 100;
+      prog.style.width = pct + "%";
+    };
+    window.addEventListener("scroll", onRead, { passive: true });
+    onRead();
+  }
+
+  /* ---------- Events page ---------- */
+  var evList = document.getElementById("events-list");
+  if (evList) {
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var events = (cfg.events || []).filter(function (ev) { return new Date(ev.date + "T00:00:00") >= today; })
+      .sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    if (!events.length) document.getElementById("events-empty").hidden = false;
+    events.forEach(function (ev) {
+      var d = new Date(ev.date + "T00:00:00");
+      var card = document.createElement("article");
+      card.className = "event";
+      var mon = d.toLocaleString("en-US", { month: "short" });
+      card.innerHTML = '<div class="event-date"><b></b><span></span></div><div class="event-body"><h2></h2><p class="event-meta"></p></div><a class="btn btn-stripe"></a>';
+      card.querySelector(".event-date b").textContent = d.getDate();
+      card.querySelector(".event-date span").textContent = mon;
+      card.querySelector("h2").textContent = ev.title;
+      card.querySelector(".event-meta").textContent = [ev.time, ev.venue, ev.city, ev.price].filter(Boolean).join(" · ");
+      var a = card.querySelector("a"); a.href = ev.href || "book.html?session=bootcamp"; a.textContent = "Reserve a seat";
+      evList.appendChild(card);
+    });
+  }
+
+  /* ---------- Hall of Fame ---------- */
+  var hof = document.getElementById("hall-of-fame");
+  if (hof && (cfg.hallOfFame || []).length) {
+    var grid = hof.querySelector(".hof-grid");
+    cfg.hallOfFame.forEach(function (w) {
+      var el = document.createElement("div"); el.className = "hof";
+      var m = document.createElement("span"); m.className = "hof-month"; m.textContent = w.month;
+      var n = document.createElement("b"); n.textContent = w.name;
+      var c = document.createElement("span"); c.textContent = w.company || "";
+      el.appendChild(m); el.appendChild(n); el.appendChild(c); grid.appendChild(el);
+    });
+    hof.hidden = false;
+  }
+
+  /* ---------- Thanks page copy per form ---------- */
+  var tTitle = document.getElementById("thanks-title");
+  if (tTitle) {
+    var f = new URLSearchParams(location.search).get("f");
+    var copy = {
+      awards: ["Quote request received.", "We'll send pricing and a digital proof within one business day. Nothing prints until you approve it."],
+      nominate: ["Nomination received.", "Thank you for recognizing someone who earned it. LJ will reach out to their manager soon."]
+    }[f];
+    if (copy) {
+      tTitle.textContent = copy[0];
+      document.getElementById("thanks-text").textContent = copy[1];
+      var bk = document.getElementById("booked"); if (bk) bk.remove();
     }
   }
 })();

@@ -154,5 +154,33 @@
     input.addEventListener("input", function () { var f = input.closest(".field"); if (f) f.classList.remove("invalid"); });
   });
 
+  // Quick picks: the next three open times
+  var qp = document.getElementById("quick-picks");
+  if (qp) {
+    var row = qp.querySelector(".quick-row"), found = 0;
+    for (var d = new Date(first); d <= last && found < 3; d = addDays(d, 1)) {
+      var times = available(d) ? slotsFor(d) : [];
+      for (var t = 0; t < Math.min(1, times.length) && found < 3; t++) {
+        (function (day, time) {
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "slot quick";
+          b.textContent = DOW[day.getDay()] + " " + (day.getMonth() + 1) + "/" + day.getDate() + ", " + time;
+          b.addEventListener("click", function () {
+            picked.date = day; picked.time = time;
+            view = new Date(day.getFullYear(), day.getMonth(), 1);
+            renderCal(); renderSlots();
+            slotsEl.querySelectorAll(".slot").forEach(function (x) { x.setAttribute("aria-pressed", x.textContent === time ? "true" : "false"); });
+            update();
+            var name = form.querySelector('[name="name"]'); if (name) name.focus();
+          });
+          row.appendChild(b);
+        })(new Date(d), times[t]);
+        found++;
+      }
+      if (found >= 3) break;
+    }
+    qp.hidden = found === 0;
+  }
+
   renderCal(); renderSlots(); update();
 })();

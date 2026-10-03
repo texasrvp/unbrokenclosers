@@ -29,6 +29,20 @@
     out.net.textContent = (net < 0 ? "-" : "") + money.format(Math.abs(net));
     out.netLabel.textContent = net >= 0 ? "ahead after a year of the Team Program" : "short of covering the Team Program on retention alone";
   }
+  // Prefill from a shared link: ?reps=12&turn=67&cost=10000&saved=2#calculator
+  var q = new URLSearchParams(location.search);
+  if (q.get("reps")) reps.value = q.get("reps");
+  if (q.get("turn")) turn.value = q.get("turn");
+  if (q.get("cost") && cost.querySelector('option[value="' + q.get("cost") + '"]')) cost.value = q.get("cost");
+  if (q.get("saved")) saved.value = q.get("saved");
+  if (q.get("reps") && location.hash !== "#calculator") document.getElementById("calculator").scrollIntoView();
+
+  var share = root.querySelector(".calc-share");
+  if (share) share.addEventListener("click", function () {
+    var url = location.origin + location.pathname + "?reps=" + reps.value + "&turn=" + turn.value + "&cost=" + cost.value + "&saved=" + saved.value + "#calculator";
+    if (window.UC_copy) window.UC_copy(url, share);
+  });
+
   [reps, turn, cost, saved].forEach(function (el) { el.addEventListener("input", update); });
   update();
 })();

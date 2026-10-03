@@ -16,5 +16,19 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "Unbroken Assessment",
+      "url": "/assessment.html"
+    },
+    {
+      "name": "Book a Call",
+      "url": "/book.html"
+    },
+    {
+      "name": "Daily Tracker",
+      "url": "/daily-tracker.html"
+    }
   ]
 }

@@ -39,6 +39,14 @@ window.UC_CONFIG = {
   // { quote: "...", name: "Jane Doe", role: "Sales Manager, Example Ford" }
   testimonials: [],
 
+  // Open events (newest last). Empty = the Events page shows a "notify me" form.
+  // { title: "Field Ready Bootcamp", date: "2026-11-14", time: "8:30 AM", city: "Killeen, TX", venue: "TBD", price: "$149 per seat", href: "book.html?session=bootcamp" }
+  events: [],
+
+  // Closer of the Month Hall of Fame on the Awards page. Empty = hidden. Real winners only, with their OK.
+  // { name: "Jane Doe", company: "Example Ford", month: "October 2026" }
+  hallOfFame: [],
+
   // Soft Pitch demo video (YouTube ID) for the Tools page. Blank = hidden.
   softPitchDemoId: "",
 
