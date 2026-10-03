@@ -24,7 +24,7 @@ window.UC_CONFIG = {
   softPitchUrl: "https://freshupleads.com/train.html",
   leadsUrl: "https://freshupleads.com",
   awardsUrl: "https://printwins.shop",
-  memoirUrl: "",                   // Amazon link to "Stripped Bare, But Unbroken" — blank hides the button
+  memoirUrl: "https://a.co/d/0by2Ndh7", // Amazon link to "Stripped Bare, But Unbroken" — blank hides the button
 
   // Social profiles (blank = hidden)
   social: {

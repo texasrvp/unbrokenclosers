@@ -3,8 +3,8 @@
   "short_name": "Unbroken",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#24282c",
-  "theme_color": "#24282c",
+  "background_color": "#12233b",
+  "theme_color": "#12233b",
   "icons": [
     {
       "src": "img/icon-192.png",
