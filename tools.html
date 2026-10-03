@@ -2,32 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Practice and lead tools | Unbroken Closers</title>
 <meta name="description" content="Soft Pitch AI sales practice and the lead finder, included with Unbroken Closers coaching.">
+<link rel="canonical" href="https://unbrokenclosers.com/tools.html">
+<meta property="og:site_name" content="Unbroken Closers">
 <meta property="og:title" content="Practice and lead tools | Unbroken Closers">
 <meta property="og:description" content="Soft Pitch AI sales practice and the lead finder, included with Unbroken Closers coaching.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://unbrokenclosers.com/tools.html">
+<meta property="og:image" content="https://unbrokenclosers.com/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Practice and lead tools | Unbroken Closers">
+<meta name="twitter:description" content="Soft Pitch AI sales practice and the lead finder, included with Unbroken Closers coaching.">
+<meta name="twitter:image" content="https://unbrokenclosers.com/img/og-image.png">
 <meta name="theme-color" content="#24282c">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261003">
+<link rel="stylesheet" href="css/styles.css?v=20261003b">
 </head>
-<body>
+<body class="has-sticky">
 <a class="skip" href="#main">Skip to content</a>
+<div class="announce" id="announce" hidden>
+  <div class="wrap"><p class="announce-body mb-0"><span class="announce-text"></span><a class="announce-link" href="#"></a></p>
+  <button class="announce-close" type="button" aria-label="Dismiss announcement">&times;</button></div>
+</div>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M9 4 L6 27 H26 L29 4" stroke="#f2c230" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unbroken Closers</span></a>
+    <a class="brand" href="index.html" aria-label="Unbroken Closers home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 5 L7 33 H29 L32 5" fill="none" stroke="#f2c230" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 26 L19.5 20 L26 26" fill="none" stroke="#f3f4f1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18 L19.5 12 L26 18" fill="none" stroke="#f3f4f1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-text"><span>Unbroken Closers</span><span class="brand-tag">Field sales coaching</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
       <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="programs.html">Programs</a></li>
         <li><a href="videos.html">Videos</a></li>
+        <li><a href="field-notes.html">Field notes</a></li>
         <li><a href="awards.html">Awards</a></li>
-        <li><a href="tools.html">Tools</a></li>
+        <li><a href="speaking.html">Speaking</a></li>
         <li><a href="about.html">About</a></li>
         <li class="nav-cta"><a href="book.html">Book a call</a></li>
       </ul>
@@ -63,12 +80,13 @@
         <div class="score">Round score <b>8 / 10</b>. Good: you agreed before redirecting. Next: ask what the other offer includes.</div>
       </div>
     </div>
+    <div class="embed" id="softpitch-demo" data-show-if="softPitchDemoId" hidden style="margin-bottom:1.5rem"></div>
 
     <div class="tool">
       <div>
         <p class="who">Bonus for Closer's Circle members</p>
         <h2>Lead finder</h2>
-        <p>Reps who sell for themselves, like insurance agents, need people to talk to. The lead finder pulls fresh, public buying signals from around the web and scores them, so members have someone to practice their new skills on.</p>
+        <p>Reps who sell for themselves, like insurance agents, need people to talk to. The lead finder pulls fresh, public buying signals from around the web and scores them, so members have someone to use their new skills on.</p>
         <p class="small muted">Beta. Members get free monthly lead credits.</p>
         <div class="btn-row">
           <a class="btn btn-dark" data-link="leadsUrl" href="#">Open the lead finder</a>
@@ -85,12 +103,15 @@
     <p class="note">Tools support the coaching; they don't replace it. The biggest gains come when practice is followed up, scored and recognized every month.</p>
   </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded',function(){var c=window.UC_CONFIG||{},el=document.getElementById('softpitch-demo');if(c.softPitchDemoId&&el){el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(c.softPitchDemoId)+'" title="Soft Pitch demo" allowfullscreen loading="lazy"></iframe>';}});
+</script>
 </main>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a class="brand" href="index.html"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M9 4 L6 27 H26 L29 4" stroke="#f2c230" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unbroken Closers</span></a>
+        <a class="brand" href="index.html" aria-label="Unbroken Closers home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 5 L7 33 H29 L32 5" fill="none" stroke="#f2c230" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 26 L19.5 20 L26 26" fill="none" stroke="#f3f4f1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 18 L19.5 12 L26 18" fill="none" stroke="#f3f4f1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-text"><span>Unbroken Closers</span><span class="brand-tag">Field sales coaching</span></span></a>
         <p class="small">Field sales coaching for dealership and insurance teams. Based in Central Texas, on site across Texas, online anywhere.</p>
       </div>
       <div>
@@ -101,25 +122,35 @@
           <li><a href="programs.html#circle">Closer's Circle</a></li>
           <li><a href="programs.html#bootcamp">Half-day bootcamp</a></li>
           <li><a href="programs.html#managers">Manager coaching</a></li>
+          <li><a href="speaking.html">Speaking</a></li>
         </ul>
       </div>
       <div>
-        <h4>Resources</h4>
+        <h4>Free resources</h4>
         <ul>
+          <li><a href="objection-quiz.html">Objection quiz</a></li>
+          <li><a href="objection-card.html">Objection Armor Card</a></li>
+          <li><a href="index.html#calculator">Turnover cost calculator</a></li>
+          <li><a href="field-notes.html">Field notes</a></li>
           <li><a href="videos.html">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Who we coach</h4>
+        <ul>
+          <li><a href="dealerships.html">Car dealerships</a></li>
+          <li><a href="insurance.html">Insurance agencies</a></li>
           <li><a href="awards.html">Awards and recognition</a></li>
           <li><a href="tools.html">Practice and lead tools</a></li>
           <li><a href="about.html">About LJ</a></li>
         </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
+        <h4 style="margin-top:1.25rem">Contact</h4>
         <ul>
           <li><a href="book.html">Book a call</a></li>
           <li><a data-email href="#"></a></li>
           <li><a data-phone href="#"></a></li>
         </ul>
-        <ul class="social-list" style="margin-top:1rem">
+        <ul class="social-list" style="margin-top:0.75rem">
           <li><a data-social="youtube" href="#">YouTube</a></li>
           <li><a data-social="tiktok" href="#">TikTok</a></li>
           <li><a data-social="linkedin" href="#">LinkedIn</a></li>
@@ -128,13 +159,29 @@
         </ul>
       </div>
     </div>
+    <div class="footer-news">
+      <div>
+        <h4>One sales lesson a week</h4>
+        <p>A two-minute read for managers and reps. No spam, unsubscribe any time.</p>
+      </div>
+      <form class="inline-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="company_url" data-ajax data-inline data-success="You're in. Watch for the first lesson this week." novalidate>
+        <input type="hidden" name="form-name" value="newsletter">
+        <p class="hidden-field"><label>Leave this empty <input name="company_url"></label></p>
+        <label class="hidden-field" for="news-email-tools">Email</label>
+        <input id="news-email-tools" name="email" type="email" required placeholder="Your email" autocomplete="email">
+        <button class="btn btn-stripe" type="submit">Subscribe</button>
+        <p class="form-status small" role="status" style="flex-basis:100%;margin:0"></p>
+      </form>
+    </div>
     <div class="legal">
       <span>&copy; <span data-year></span> Unbroken Closers. Veteran-owned.</span>
       <span>Awards made by <a data-link="awardsUrl" href="#">Print Wins</a></span>
     </div>
   </div>
 </footer>
-<script src="js/config.js?v=20261003"></script>
-<script src="js/main.js?v=20261003"></script>
+<div class="sticky-cta" id="sticky-cta"><a class="btn btn-stripe" href="book.html?session=workshop">Book a free team workshop</a></div>
+<button class="to-top" id="to-top" type="button" aria-label="Back to top"></button>
+<script src="js/config.js?v=20261003b"></script>
+<script src="js/main.js?v=20261003b"></script>
 </body>
 </html>

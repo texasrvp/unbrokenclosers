@@ -78,6 +78,7 @@ window.UC_VIDEOS = [
   var caption = modal.querySelector("h3");
   var closeBtn = modal.querySelector(".modal-close");
   var lastFocus = null;
+  var releaseTrap = null;
 
   function openVideo(v, from) {
     lastFocus = from;
@@ -88,11 +89,14 @@ window.UC_VIDEOS = [
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
     closeBtn.focus();
+    if (window.UC_trapFocus) releaseTrap = window.UC_trapFocus(modal);
+    if (window.UC_track) window.UC_track("video_play", { title: v.title });
   }
   function closeVideo() {
     modal.classList.remove("open");
     frame.innerHTML = "";
     document.body.style.overflow = "";
+    if (releaseTrap) { releaseTrap(); releaseTrap = null; }
     if (lastFocus) lastFocus.focus();
   }
   closeBtn.addEventListener("click", closeVideo);

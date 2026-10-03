@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Unbroken Closers seal">
+  <defs><path id="ring" d="M120 34 a86 86 0 1 1 0 172 a86 86 0 1 1 0 -172"/></defs>
+  <circle cx="120" cy="120" r="116" fill="#24282c"/>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#f2c230" stroke-width="4"/>
+  <circle cx="120" cy="120" r="66" fill="none" stroke="#f2c230" stroke-width="2"/>
+  <text font-family="Barlow Condensed, Inter Display, Arial Narrow, sans-serif" font-weight="700" font-size="19" fill="#f3f4f1">
+    <textPath href="#ring" startOffset="0" textLength="526" lengthAdjust="spacing">UNBROKEN CLOSERS ★ FIELD SALES COACHING ★</textPath>
+  </text>
+  <g transform="translate(86 70) scale(1.7)">
+    <path d="M10 5 L7 33 H29 L32 5" fill="none" stroke="#f2c230" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 26 L19.5 20 L26 26" fill="none" stroke="#f3f4f1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 18 L19.5 12 L26 18" fill="none" stroke="#f3f4f1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="120" y="158" text-anchor="middle" font-family="Barlow Condensed, Inter Display, Arial Narrow, sans-serif" font-weight="700" font-size="13" letter-spacing="2" fill="#c2c8cc">EST. 2026</text>
+</svg>

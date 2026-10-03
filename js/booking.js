@@ -139,16 +139,15 @@
       calGrid.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
-    var ok = true;
-    form.querySelectorAll("[required]").forEach(function (input) {
-      if (input.type === "radio") return;
-      var field = input.closest(".field");
-      var valid = input.value.trim() !== "" && (input.type !== "email" || /.+@.+\..+/.test(input.value));
-      if (field) field.classList.toggle("invalid", !valid);
-      if (!valid && ok) { input.focus(); ok = false; }
-    });
-    if (!ok) return;
+    if (!window.UC_validate(form)) return;
     form.querySelector('[name="session_label"]').value = sessionLabel();
+    var sessionVal = (form.querySelector('input[name="session"]:checked') || {}).value;
+    try {
+      sessionStorage.setItem("uc_booking", JSON.stringify({
+        session: sessionLabel(), date: iso(picked.date), time: picked.time, pretty: pretty(picked.date),
+        length: (bk.lengths && bk.lengths[sessionVal]) || 30
+      }));
+    } catch (err) {}
     window.UC_submitForm(form, status);
   });
   form.querySelectorAll(".field input, .field select, .field textarea").forEach(function (input) {
