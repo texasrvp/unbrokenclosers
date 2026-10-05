@@ -68,7 +68,7 @@ window.UC_CONFIG = {
       6: ["9:00 AM", "10:00 AM", "11:00 AM"]
     },
     // Length of each session in minutes, used for "Add to calendar"
-    lengths: { workshop: 45, team: 30, circle: 15, bootcamp: 30, manager: 20, speaking: 30 },
+    lengths: { workshop: 45, team: 30, circle: 15, bootcamp: 30, manager: 20, fi: 30, speaking: 30 },
     blockedDates: []               // e.g. ["2026-11-26", "2026-12-25"]
   }
 };

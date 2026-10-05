@@ -31,7 +31,7 @@ LOGO FILES (img/)       mark.svg (icon), seal.svg / seal.png (emblem for awards,
                         og-image.png (link preview image), favicons and app icons.
 
 CACHE
-After editing CSS or JS, change ?v=20261003e in the HTML files to a new value so browsers load the update.
+After editing CSS or JS, change ?v=20261005a in the HTML files to a new value so browsers load the update.
 
 UNBROKEN ASSESSMENT (js/assessment.js)
 - The 8 inner objections, their book chapters, stories and first steps live at the top of the file. Edit the
@@ -58,3 +58,13 @@ When ga4Id is set, visitors see a small consent notice. Google Analytics loads o
 PRIVACY AND TERMS
 privacy.html and terms.html are plain-language starting points, not legal advice. Have them reviewed
 before you rely on them, especially once you take payments.
+
+REFERRAL PROGRAM (referrals.html)
+- Personal links look like unbrokenclosers.com/?ref=first-last. The visitor's referrer is remembered for 90 days
+  and sent with booking requests in the "referred_by" field.
+- Introductions arrive through the "referral" Netlify form.
+- Reward amounts are written on the page itself. Change them there if you adjust the program.
+
+F&I COACHING (fi.html)
+- Linked from the dealership page, Programs page, footer and the booking calendar ("F&I Strategy Call").
+- Statistics come from StoneEagleDATA Q4 2025 via AutoSuccess; update them as new reports come out.

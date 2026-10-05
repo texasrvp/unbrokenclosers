@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261003e">
+<link rel="stylesheet" href="css/styles.css?v=20261005a">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://unbrokenclosers.com/"}, {"@type": "ListItem", "position": 2, "name": "Book a Call", "item": "https://unbrokenclosers.com/book.html"}]}</script>
 </head>
 <body class="has-sticky">
@@ -72,6 +72,7 @@
       <input type="hidden" name="date">
       <input type="hidden" name="time">
       <input type="hidden" name="session_label">
+      <input type="hidden" name="referred_by">
       <p class="hidden-field"><label>Leave this empty <input name="company_url"></label></p>
 
       <div class="panel">
@@ -88,6 +89,8 @@
           <span><strong>Plan a Bootcamp</strong><small>Dates, team size and goals</small></span><span class="len">30 min</span></label>
         <label><input type="radio" name="session" value="manager" data-label="Manager Coaching Intro" required>
           <span><strong>Manager Coaching Intro</strong><small>One-on-one fit call</small></span><span class="len">20 min</span></label>
+        <label><input type="radio" name="session" value="fi" data-label="F&I Strategy Call" required>
+          <span><strong>F&I Strategy Call</strong><small>For F&I managers and directors</small></span><span class="len">30 min</span></label>
         <label><input type="radio" name="session" value="speaking" data-label="Speaking Inquiry" required>
           <span><strong>Speaking Inquiry</strong><small>Keynotes, workshops and panels</small></span><span class="len">30 min</span></label>
         </fieldset>
@@ -116,7 +119,7 @@
           <div class="field"><label for="b-email">Email</label><input id="b-email" name="email" type="email" required autocomplete="email"><p class="err">Enter a valid email.</p></div>
           <div class="field"><label for="b-phone">Phone</label><input id="b-phone" name="phone" type="tel" autocomplete="tel"></div>
           <div class="field"><label for="b-role">Your role</label>
-            <select id="b-role" name="role"><option>Sales manager</option><option>General manager or owner</option><option>Sales rep or agent</option><option>Event or association organizer</option><option>Other</option></select></div>
+            <select id="b-role" name="role"><option>Sales manager</option><option>General manager or owner</option><option>F&amp;I manager or director</option><option>Sales rep or agent</option><option>Event or association organizer</option><option>Other</option></select></div>
           <div class="field"><label for="b-company">Dealership or company</label><input id="b-company" name="company" autocomplete="organization"></div>
           <div class="field"><label for="b-size">Team size</label>
             <select id="b-size" name="team_size"><option>Just me</option><option>2 to 5</option><option>6 to 15</option><option>16 to 30</option><option>More than 30</option></select></div>
@@ -182,9 +185,11 @@
         <h4>Who We Coach</h4>
         <ul>
           <li><a href="dealerships.html">Car Dealerships</a></li>
+          <li><a href="fi.html">F&amp;I Coaching</a></li>
           <li><a href="insurance.html">Insurance Agencies</a></li>
           <li><a href="awards.html">Awards and Recognition</a></li>
           <li><a href="nominate.html">Nominate a Closer</a></li>
+          <li><a href="referrals.html">Referral Program</a></li>
           <li><a href="tools.html">Practice and Lead Tools</a></li>
         </ul>
       </div>
@@ -224,8 +229,8 @@
 </footer>
 
 <button class="to-top" id="to-top" type="button" aria-label="Back to top"></button>
-<script src="js/config.js?v=20261003e"></script>
-<script src="js/main.js?v=20261003e"></script>
-<script src="js/booking.js?v=20261003e"></script>
+<script src="js/config.js?v=20261005a"></script>
+<script src="js/main.js?v=20261005a"></script>
+<script src="js/booking.js?v=20261005a"></script>
 </body>
 </html>

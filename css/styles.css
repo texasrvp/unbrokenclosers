@@ -1031,3 +1031,36 @@ body.nav-open { overflow: hidden; }
   .as-card-head h3 { color: #000 !important; }
   .huddle-week { break-inside: avoid; }
 }
+
+/* F&I page */
+.fi-hiccups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.fi-hiccup { background: var(--chalk); border-radius: var(--radius-md); padding: 1.25rem 1.4rem; border-left: 5px solid var(--blue); }
+.fi-hiccup:nth-child(4n+2), .fi-hiccup:nth-child(4n+3) { border-left-color: var(--stripe); }
+.fi-hiccup h3 { font-size: var(--step-2); margin-bottom: 0.35rem; }
+.fi-hiccup p { margin: 0 0 0.5rem; color: var(--steel); }
+.fi-hiccup .fi-fix { margin: 0; color: var(--ink); }
+.fi-hiccup .fi-fix b { color: var(--blue); }
+@media (max-width: 760px) { .fi-hiccups { grid-template-columns: 1fr; } }
+.fi-objs { display: grid; gap: 0.75rem; }
+.fi-obj { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius-md); }
+.fi-obj summary { cursor: pointer; list-style: none; padding: 1.1rem 3rem 1.1rem 1.25rem; position: relative; font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.15; }
+.fi-obj summary::-webkit-details-marker { display: none; }
+.fi-obj summary::after { content: ""; position: absolute; right: 1.25rem; top: 50%; width: 11px; height: 11px; border-right: 3px solid var(--stripe-deep); border-bottom: 3px solid var(--stripe-deep); transform: translateY(-70%) rotate(45deg); transition: transform 0.2s; }
+.fi-obj[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.fi-obj-body { padding: 0 1.25rem 1.25rem; }
+.fi-say { background: var(--chalk); border-left: 4px solid var(--stripe); padding: 0.85rem 1rem; margin: 0 0 0.75rem; max-width: none; font-size: 1.05rem; }
+.fi-say span { display: block; font-size: var(--step--1); font-weight: 700; color: var(--blue); margin-bottom: 0.25rem; }
+.fi-why { margin: 0; color: var(--steel); }
+#fi-program .checks li { border-color: var(--asphalt-3); color: #d7dbd6; }
+#fi-program .price-big { color: #fff; }
+#fi-program .btn-ghost { color: var(--chalk); }
+
+/* Referral page */
+.ref-gen { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.ref-gen input { flex: 1 1 220px; font: 1rem var(--font-body); padding: 0.85rem 1rem; border: 2px solid var(--ink); border-radius: var(--radius-sm); background: var(--paper); color: var(--ink); }
+.ref-gen input[aria-invalid="true"] { border-color: var(--danger); }
+.ref-out { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 1rem; padding: 1rem; background: var(--paper); border: 1px dashed var(--blue); border-radius: var(--radius-md); }
+.ref-out code { font-size: 1rem; word-break: break-all; flex: 1 1 240px; color: var(--blue); }
+.check-label { display: flex !important; gap: 0.6rem; align-items: center; font-weight: 600; }
+.check-label input { width: 20px; height: 20px; accent-color: var(--stripe-deep); }
+.field.invalid .check-label { color: var(--danger); }

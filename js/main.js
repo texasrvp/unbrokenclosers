@@ -197,7 +197,7 @@
     form.querySelectorAll("[required]").forEach(function (input) {
       if (input.type === "radio") return;
       var field = input.closest(".field");
-      var valid = input.value.trim() !== "" && (input.type !== "email" || /.+@.+\..+/.test(input.value));
+      var valid = input.type === "checkbox" ? input.checked : (input.value.trim() !== "" && (input.type !== "email" || /.+@.+\..+/.test(input.value)));
       if (field) field.classList.toggle("invalid", !valid);
       else input.setAttribute("aria-invalid", valid ? "false" : "true");
       if (!valid && ok) { input.focus(); ok = false; }
@@ -386,13 +386,45 @@
     hof.hidden = false;
   }
 
+  /* ---------- Referral tracking ---------- */
+  var refParam = new URLSearchParams(location.search).get("ref");
+  if (refParam) {
+    try { localStorage.setItem("uc_ref", JSON.stringify({ ref: refParam.slice(0, 80), at: Date.now() })); } catch (e) {}
+  }
+  var refSaved = null;
+  try {
+    refSaved = JSON.parse(localStorage.getItem("uc_ref") || "null");
+    if (refSaved && Date.now() - refSaved.at > 90 * 864e5) { localStorage.removeItem("uc_ref"); refSaved = null; }
+  } catch (e) {}
+  if (refSaved) document.querySelectorAll('input[name="referred_by"]').forEach(function (i) { i.value = refSaved.ref; });
+
+  var refMake = document.getElementById("ref-make");
+  if (refMake) {
+    var refName = document.getElementById("ref-name");
+    var makeLink = function () {
+      var slug = refName.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      if (!slug) { refName.setAttribute("aria-invalid", "true"); refName.focus(); return; }
+      refName.removeAttribute("aria-invalid");
+      var base = (cfg.siteUrl || location.origin).replace(/\/$/, "");
+      document.getElementById("ref-link").textContent = base + "/?ref=" + slug;
+      document.getElementById("ref-out").hidden = false;
+      window.UC_track("referral_link_made");
+    };
+    refMake.addEventListener("click", makeLink);
+    refName.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); makeLink(); } });
+    document.getElementById("ref-copy").addEventListener("click", function (e) {
+      copyText(document.getElementById("ref-link").textContent, e.currentTarget);
+    });
+  }
+
   /* ---------- Thanks page copy per form ---------- */
   var tTitle = document.getElementById("thanks-title");
   if (tTitle) {
     var f = new URLSearchParams(location.search).get("f");
     var copy = {
       awards: ["Quote request received.", "We'll send pricing and a digital proof within one business day. Nothing prints until you approve it."],
-      nominate: ["Nomination received.", "Thank you for recognizing someone who earned it. LJ will reach out to their manager soon."]
+      nominate: ["Nomination received.", "Thank you for recognizing someone who earned it. LJ will reach out to their manager soon."],
+      referral: ["Thanks for the introduction.", "LJ will reach out to them within a few days and let them know you sent us. We\u2019ll keep you posted."]
     }[f];
     if (copy) {
       tTitle.textContent = copy[0];
