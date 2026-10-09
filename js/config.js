@@ -15,7 +15,7 @@ window.UC_CONFIG = {
   showVideos: false,
 
   // Google Analytics 4 measurement ID, e.g. "G-XXXXXXX". Blank = no tracking scripts load.
-  ga4Id: "",
+  ga4Id: "G-E8PH05W2J0",
 
   // Top-of-page announcement bar. Blank text = hidden.
   announcement: {
