@@ -42,7 +42,7 @@ window.UC_CONFIG = {
   social: {
     youtube: "",
     tiktok: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/larrydstephens/",
     facebook: "",
     instagram: ""
   },
