@@ -42,6 +42,7 @@
     var a = e.target.closest("a");
     if (!a) return;
     var href = a.getAttribute("href") || "";
+    if (a.hasAttribute("data-track")) window.UC_track(a.getAttribute("data-track"), { from: location.pathname, label: a.textContent.trim() });
     if (href.indexOf("book.html") === 0) window.UC_track("book_click", { from: location.pathname, label: a.textContent.trim() });
     else if (/^https?:/.test(href) && href.indexOf(location.host) === -1) window.UC_track("outbound_click", { url: href });
   });
@@ -117,8 +118,29 @@
     else if (li) li.hidden = true; else el.hidden = true;
   });
   var socialList = document.querySelector(".social-list");
-  if (socialList && !socialList.querySelector("li:not([hidden])")) {
-    socialList.innerHTML = '<li class="small">Videos post on YouTube and TikTok soon.</li>';
+  if (socialList && !socialList.querySelector("li:not([hidden])")) socialList.hidden = true;
+
+  /* ---------- Photo of LJ (shown only if img/lj.jpg exists) ---------- */
+  if (cfg.photo) {
+    var probe = new Image();
+    probe.onload = function () {
+      document.querySelectorAll(".portrait").forEach(function (box) {
+        if (box.querySelector("img")) return;
+        var img = document.createElement("img");
+        img.src = cfg.photo; img.alt = "LJ Stephens"; img.width = 800; img.height = 1000; img.loading = "lazy";
+        box.appendChild(img);
+        var fb = box.querySelector("[data-photo-fallback]"); if (fb) fb.hidden = true;
+      });
+      document.querySelectorAll("img[data-photo]").forEach(function (img) { img.src = cfg.photo; img.hidden = false; });
+    };
+    probe.src = cfg.photo;
+  }
+
+  /* ---------- Videos menu link: hidden until videos are published ---------- */
+  if (!cfg.showVideos) {
+    document.querySelectorAll('a[href="videos.html"]').forEach(function (a) {
+      var li = a.closest("li"); if (li) li.hidden = true; else a.hidden = true;
+    });
   }
   document.querySelectorAll("[data-show-if]").forEach(function (el) {
     var key = el.getAttribute("data-show-if").split(".");

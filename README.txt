@@ -31,7 +31,7 @@ LOGO FILES (img/)       mark.svg (icon), seal.svg / seal.png (emblem for awards,
                         og-image.png (link preview image), favicons and app icons.
 
 CACHE
-After editing CSS or JS, change ?v=20261005a in the HTML files to a new value so browsers load the update.
+After editing CSS or JS, change ?v=20261009a in the HTML files to a new value so browsers load the update.
 
 UNBROKEN ASSESSMENT (js/assessment.js)
 - The 8 inner objections, their book chapters, stories and first steps live at the top of the file. Edit the
@@ -68,3 +68,13 @@ REFERRAL PROGRAM (referrals.html)
 F&I COACHING (fi.html)
 - Linked from the dealership page, Programs page, footer and the booking calendar ("F&I Strategy Call").
 - Statistics come from StoneEagleDATA Q4 2025 via AutoSuccess; update them as new reports come out.
+
+OCT 2026 UPDATE
+- Closer's Circle joins happen on Skool. Links live in js/config.js: skoolJoinUrl (sales page) and
+  skoolCommunityUrl (members' home, used by "Member Log In" in the menu and footer).
+- Your photo: save a portrait headshot as img/lj.jpg. It appears on About, the Media Kit and next to
+  "Led by LJ" on the home page. Nothing shows a broken image if the file is missing.
+- Videos: the menu link stays hidden until you set showVideos: true in js/config.js
+  (do that once 3 or more videos have a youtubeId in js/videos.js).
+- Free signed book: managers who book the Free Team Workshop get a signed copy. Video workshops ask
+  for a mailing address on the booking form (field: book_mailing_address).

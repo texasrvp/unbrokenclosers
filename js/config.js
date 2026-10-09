@@ -7,6 +7,13 @@ window.UC_CONFIG = {
   email: "hello@unbrokenclosers.com",
   phone: "",                       // e.g. "(254) 555-0100" — leave blank to hide
 
+  // Your headshot. Save it as img/lj.jpg (portrait, about 800x1000) and it appears on the About page
+  // and next to your name on the home page. If the file isn't there, the site shows nothing broken.
+  photo: "img/lj.jpg",
+
+  // Show the Videos page in the menu. Turn on once at least 3 videos have a youtubeId in js/videos.js.
+  showVideos: false,
+
   // Google Analytics 4 measurement ID, e.g. "G-XXXXXXX". Blank = no tracking scripts load.
   ga4Id: "",
 
@@ -19,6 +26,11 @@ window.UC_CONFIG = {
 
   // Founding team offer: update "taken" as you sign teams. The site shows spots left.
   foundingSpots: { total: 5, taken: 0 },
+
+  // Closer's Circle lives on Skool. joinUrl = the sales page with the Join button; communityUrl = members' home.
+  skoolJoinUrl: "https://www.skool.com/unbroken-closers-7322/about",
+  skoolCommunityUrl: "https://www.skool.com/unbroken-closers-7322",
+  circlePrice: { regular: 79, founding: 49, foundingSpots: 10 },
 
   // Partner links
   softPitchUrl: "https://freshupleads.com/train.html",
