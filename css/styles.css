@@ -119,6 +119,9 @@ h4 { font-size: var(--step-1); }
 }
 .nav .nav-cta a:hover { background: #ffd34d; color: var(--ink); }
 .nav .nav-cta a[aria-current="page"] { box-shadow: none; border-radius: var(--radius-sm); }
+.nav .nav-members a { font-size: 0.85rem; color: #aeb5ad; border: 1px solid var(--asphalt-3); margin-left: 0.35rem; }
+.nav .nav-members a:hover { color: var(--paper); border-color: #d7dbd6; }
+@media (min-width: 901px) and (max-width: 1180px) { .nav a { padding: 0.5rem 0.55rem; font-size: 0.9rem; } }
 
 @media (max-width: 900px) {
   .nav-toggle { display: inline-block; }
@@ -132,6 +135,7 @@ h4 { font-size: var(--step-1); }
   .nav a { padding: 0.85rem 0.5rem; font-size: 1.05rem; }
   .nav a[aria-current="page"] { box-shadow: inset 4px 0 0 var(--stripe); padding-left: 1rem; }
   .nav .nav-cta a { margin: 0.5rem 0 0; text-align: center; }
+  .nav .nav-members a { margin: 0.5rem 0 0; text-align: center; font-size: 1rem; }
 }
 
 /* ---------- Buttons ---------- */
@@ -1064,3 +1068,14 @@ body.nav-open { overflow: hidden; }
 .check-label { display: flex !important; gap: 0.6rem; align-items: center; font-weight: 600; }
 .check-label input { width: 20px; height: 20px; accent-color: var(--stripe-deep); }
 .field.invalid .check-label { color: var(--danger); }
+
+/* Photo next to "Led by LJ" on the home page (appears once img/lj.jpg exists) */
+.led-by { display: flex; align-items: center; gap: 0.6rem; }
+.led-by-photo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--stripe); flex-shrink: 0; }
+.site-footer .social-list[hidden] { display: none; }
+
+/* Free signed book offer (the-book.html) */
+.book-offer { background: var(--paper, #fff); border: 2px solid var(--stripe); border-left-width: 6px; padding: 1.1rem 1.25rem; margin: 1.25rem 0; border-radius: var(--radius-sm); }
+.book-offer h3 { margin: 0 0 0.35rem; }
+.book-offer p { margin: 0 0 0.9rem; }
+.led-by-photo[hidden], [data-photo-fallback][hidden] { display: none !important; }

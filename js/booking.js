@@ -130,6 +130,17 @@
   nextBtn.addEventListener("click", function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); });
   form.querySelectorAll('input[name="session"]').forEach(function (r) { r.addEventListener("change", update); });
 
+  // Signed book for workshop managers: ask for a mailing address only for video workshops
+  var mailBox = document.getElementById("book-mail"), whereSel = document.getElementById("b-where");
+  function toggleMail() {
+    if (!mailBox || !whereSel) return;
+    var s = form.querySelector('input[name="session"]:checked');
+    mailBox.hidden = !(s && s.value === "workshop" && /video/i.test(whereSel.value));
+  }
+  form.querySelectorAll('input[name="session"]').forEach(function (r) { r.addEventListener("change", toggleMail); });
+  if (whereSel) whereSel.addEventListener("change", toggleMail);
+  toggleMail();
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     status.textContent = ""; status.className = "form-status";

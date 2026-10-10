@@ -136,6 +136,13 @@ window.UC_OBJECTIONS = {
 };
 
 (function () {
+  var CFG = window.UC_CONFIG || {};
+  var skoolJoin = CFG.skoolJoinUrl || "programs.html#circle";
+  function circlePriceLine() {
+    var p = CFG.circlePrice || { regular: 79, founding: 49, foundingSpots: 10 };
+    return "$" + p.regular + " a month. The first " + p.foundingSpots + " founding members pay $" + p.founding + " a month, locked for life. Cancel any time.";
+  }
+
   var root = document.getElementById("assessment");
   if (!root) return;
   var O = window.UC_OBJECTIONS;
@@ -261,9 +268,10 @@ window.UC_OBJECTIONS = {
     html += "</div>";
 
     html += '<div class="as-next">' +
-      "<h3>Get Past It, With a Coach in Your Corner</h3>" +
-      "<p>Inside Unbroken Closers, LJ coaches the skills and the person. Closer’s Circle members work through their top inner objection with live group coaching and practice every week.</p>" +
-      '<div class="btn-row"><a class="btn btn-stripe" href="programs.html#circle">Join the Closer’s Circle</a>' +
+      "<h3>Your First Lesson Is Waiting: " + esc(O[top[0]].name) + "</h3>" +
+      "<p>In the Closer’s Circle, “" + esc(O[top[0]].name) + "” is a full lesson from the chapter " + esc(O[top[0]].chapter) + ", with a drill, a Soft Pitch practice round and live coaching on Tuesday calls. Bring these results to your first call and LJ will build your plan around them.</p>" +
+      '<p class="small">' + circlePriceLine() + '</p>' +
+      '<div class="btn-row"><a class="btn btn-stripe" href="' + esc(skoolJoin) + '" target="_blank" rel="noopener" data-track="join_circle">Join the Closer’s Circle on Skool</a>' +
       '<a class="btn btn-ghost" href="book.html?session=circle">Talk with LJ first</a>' +
       '<button type="button" class="btn btn-ghost as-restart">Retake the assessment</button></div>' +
       '<div class="as-tools"><button type="button" class="as-tool as-print">Print or save as PDF</button><button type="button" class="as-tool as-copy">Copy my results</button></div></div>';
