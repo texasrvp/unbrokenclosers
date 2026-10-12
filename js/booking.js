@@ -1,7 +1,7 @@
 /*
   Unbroken Closers — booking calendar.
   People pick a session, a day and a time; the request goes to Netlify Forms ("booking")
-  and you confirm by email. Set calendlyUrl in config.js to swap in a live calendar instead.
+  and you confirm by email. Set calcom.username in config.js to swap in your live Cal.com calendar.
 */
 (function () {
   var cfg = window.UC_CONFIG || {};
@@ -9,11 +9,82 @@
   var root = document.getElementById("booking-app");
   if (!root) return;
 
-  // Live scheduler swap
-  if (cfg.calendlyUrl) {
+  // Live Cal.com calendar: pick a session, then a real open time.
+  // ?form=1 keeps the request form (handy if Cal.com is ever down).
+  var cal = cfg.calcom || {};
+  var wantForm = /[?&]form=1/.test(location.search);
+  if (cal.username && !wantForm) { calMode(); return; }
+  if (cfg.calendlyUrl && !wantForm) {
     root.innerHTML = '<div class="panel"><iframe src="' + cfg.calendlyUrl +
       '" title="Book a time with Unbroken Closers" style="width:100%;height:760px;border:0" loading="lazy"></iframe></div>';
     return;
+  }
+
+  function calMode() {
+    var formEl = document.getElementById("booking-form");
+    var types = formEl.querySelector(".session-types");
+    var radios = formEl.querySelectorAll('input[name="session"]');
+    var events = cal.events || {};
+    var origin = cal.origin || "https://cal.com";
+    var qsSession = new URLSearchParams(location.search).get("session");
+    if (qsSession) { var m = formEl.querySelector('input[name="session"][value="' + qsSession + '"]'); if (m) m.checked = true; }
+
+    var heroP = document.querySelector(".page-hero p");
+    if (heroP) heroP.textContent = "Pick a session and an open time. You’ll get a confirmation and a calendar invite right away.";
+    var wrap = document.createElement("div");
+    wrap.className = "booking booking-cal";
+    var left = document.createElement("div");
+    left.className = "panel";
+    left.innerHTML = '<h2>Choose a Session</h2>';
+    left.appendChild(types);
+    var note = document.createElement("div");
+    note.className = "cal-note small";
+    note.innerHTML = '<p class="mb-0"><b>Free workshop?</b> You get a signed copy of LJ’s book. On site, he hands it to you; for video workshops, add your mailing address in the booking notes.</p>';
+    left.appendChild(note);
+    var right = document.createElement("div");
+    right.className = "panel cal-panel";
+    right.innerHTML = '<h2 class="cal-heading">Pick a Time</h2><div class="cal-frames"></div>' +
+      '<p class="small muted cal-fallback" style="margin-top:0.75rem">Calendar not loading? <a class="text-link cal-open" target="_blank" rel="noopener" href="#">Open it in a new tab</a> or <a class="text-link" href="book.html?form=1">send a request instead</a>.</p>';
+    wrap.appendChild(left); wrap.appendChild(right);
+    root.innerHTML = "";
+    root.appendChild(wrap);
+
+    // Official Cal.com embed loader
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var c = C.Cal; var ar = arguments; if (!c.loaded) { c.ns = {}; c.q = c.q || []; d.head.appendChild(d.createElement("script")).src = A; c.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var ns = ar[1]; api.q = api.q || []; if (typeof ns === "string") { c.ns[ns] = c.ns[ns] || api; p(c.ns[ns], ar); p(c, ["initNamespace", ns]); } else p(c, ar); return; } p(c, ar); }; })(window, (cal.embedScript || "https://app.cal.com/embed/embed.js"), "init");
+
+    var frames = right.querySelector(".cal-frames");
+    var openLink = right.querySelector(".cal-open");
+    var made = {};
+    function show(key, label) {
+      var slug = events[key] || events["default"] || "";
+      var link = cal.username + (slug ? "/" + slug : "");
+      openLink.href = origin.replace(/\/$/, "") + "/" + link;
+      right.querySelector(".cal-heading").textContent = label ? "Pick a Time: " + label : "Pick a Time";
+      Array.prototype.forEach.call(frames.children, function (f) { f.hidden = f.getAttribute("data-key") !== key; });
+      if (made[key]) return;
+      made[key] = true;
+      var box = document.createElement("div");
+      box.className = "cal-frame"; box.setAttribute("data-key", key); box.id = "cal-" + key;
+      frames.appendChild(box);
+      var ns = "uc" + key;
+      window.Cal("init", ns, { origin: origin });
+      window.Cal.ns[ns]("inline", { elementOrSelector: "#cal-" + key, calLink: link, config: { layout: "month_view", theme: "light" } });
+      window.Cal.ns[ns]("ui", { hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { light: { "cal-brand": "#d9504e" } } });
+      window.Cal.ns[ns]("on", { action: "bookingSuccessful", callback: function () {
+        if (window.UC_track) { window.UC_track("booking_scheduled", { session: key }); window.UC_track("generate_lead", { source: "booking", session: key }); }
+      } });
+    }
+    function current() {
+      var r = Array.prototype.filter.call(radios, function (x) { return x.checked; })[0] || radios[0];
+      return { key: r.value, label: r.getAttribute("data-label") };
+    }
+    radios.forEach(function (r) {
+      r.addEventListener("change", function () {
+        var c = current(); show(c.key, c.label);
+        if (window.matchMedia("(max-width: 900px)").matches) right.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+    var c0 = current(); show(c0.key, c0.label);
   }
 
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

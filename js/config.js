@@ -55,15 +55,43 @@ window.UC_CONFIG = {
   // { title: "Field Ready Bootcamp", date: "2026-11-14", time: "8:30 AM", city: "Killeen, TX", venue: "TBD", price: "$149 per seat", href: "book.html?session=bootcamp" }
   events: [],
 
-  // Closer of the Month Hall of Fame on the Awards page. Empty = hidden. Real winners only, with their OK.
-  // { name: "Jane Doe", company: "Example Ford", month: "October 2026" }
+  // Closer of the Month winners: shown on the Wall (wall.html) and the Awards page. Real winners only, with their OK.
+  // { name: "Jane Doe", company: "Example Ford", month: "October 2026", award: "Closer of the Month",
+  //   why: "14 units and a 100% CSI month", photo: "img/winners/jane.jpg" }   (why and photo are optional)
   hallOfFame: [],
+
+  // 90-second hello video on the home and About pages. Fill ONE: a YouTube ID, a Vimeo ID or an MP4 path (e.g. "img/hello.mp4").
+  helloVideo: { youtubeId: "", vimeoId: "", mp4: "", poster: "img/lj.jpg" },
+
+  // Optional numbers for the credibility strip on the home page. Leave null to hide. Real numbers only.
+  credentials: { yearsInSales: null, repsTrained: null, statesLed: null },
+
+  // Automatic follow-up emails after the assessment, quiz, scorecard and newsletter (needs RESEND_API_KEY in Netlify).
+  emailFollowUp: true,
+
+  // "Practice this objection" buttons open the Fresh Up trainer with that objection.
+  practiceUrl: "https://freshupleads.com/train",
 
   // Soft Pitch demo video (YouTube ID) for the Tools page. Blank = hidden.
   softPitchDemoId: "",
 
-  // Booking calendar
-  // Set calendlyUrl (or a Cal.com link) to show a live calendar instead of the request form.
+  // Booking calendar: Cal.com
+  // username = the part after cal.com/ in your booking link (cal.com/YOURNAME).
+  // events = the event slug for each session type (the part after your name, e.g. cal.com/YOURNAME/free-team-workshop).
+  // Any session without its own event uses "default". Blank username = the request form below is used instead.
+  calcom: {
+    username: "",
+    events: {
+      "default": "30min",
+      workshop: "free-team-workshop",
+      team: "strategy-call",
+      circle: "circle-intro",
+      bootcamp: "plan-a-bootcamp",
+      manager: "manager-coaching-intro",
+      fi: "fi-strategy-call",
+      speaking: "speaking-inquiry"
+    }
+  },
   calendlyUrl: "",
   booking: {
     daysAhead: 45,

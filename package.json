@@ -1,0 +1,10 @@
+{
+  "name": "unbrokenclosers",
+  "private": true,
+  "description": "unbrokenclosers.com: static site + Netlify Functions (no dependencies)",
+  "scripts": {
+    "build:pages": "python3 scripts/build.py",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": { "node": ">=18" }
+}

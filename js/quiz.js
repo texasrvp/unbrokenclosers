@@ -77,8 +77,10 @@
       else if (bn === n) b.classList.add("wrong");
     });
     var fb = stage.querySelector(".quiz-feedback");
+    var said = q.buyer.replace(/^[“"]|[”"]$/g, "");
+    var practice = window.UC_practiceUrl ? ' <a class="as-tool quiz-practice" target="_blank" rel="noopener" data-practice="' + esc(said).replace(/"/g, "&quot;") + '" href="' + esc(window.UC_practiceUrl(said, "auto")).replace(/"/g, "&quot;") + '">Practice this one with an AI customer</a>' : "";
     fb.innerHTML = "<p><b>" + (right ? "That’s the one." : "Close, but there’s a stronger answer.") + "</b> " + esc(q.why) + "</p>" +
-      '<button type="button" class="btn btn-dark quiz-next">' + (i < Q.length - 1 ? "Next question" : "See my score") + "</button>";
+      '<div class="btn-row" style="align-items:center"><button type="button" class="btn btn-dark quiz-next">' + (i < Q.length - 1 ? "Next question" : "See my score") + "</button>" + practice + "</div>";
     var next = fb.querySelector(".quiz-next");
     next.addEventListener("click", function () { i++; i < Q.length ? renderQ() : finish(); });
     next.focus();
@@ -94,6 +96,7 @@
       '<div class="quiz-result"><div class="quiz-score">' + score + "/" + Q.length + "</div>" +
       "<h3>" + rank + "</h3><p>" + msg + "</p>" +
       '<div class="btn-row"><a class="btn btn-stripe" href="objection-card.html">Get the free Objection Armor Card</a>' +
+      '<a class="btn btn-ghost" href="objection-library.html">Browse all ' + 20 + ' objections</a>' +
       '<a class="btn btn-ghost" href="programs.html#circle">Practice with the Closer’s Circle</a>' +
       '<button type="button" class="btn btn-ghost quiz-again">Take it again</button></div>' +
       '<p style="margin-top:1rem"><button type="button" class="as-tool quiz-share">Copy my score to share</button></p></div>';

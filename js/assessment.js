@@ -283,6 +283,7 @@ window.UC_OBJECTIONS = {
     if (form) {
       form.hidden = false;
       form.querySelector('[name="top_areas"]').value = top.map(function (k) { return O[k].name; }).join(", ");
+      var tk = form.querySelector('[name="top_key"]'); if (tk) tk.value = top[0] || "";
     }
     stage.querySelector(".as-print").addEventListener("click", function () { window.print(); });
     stage.querySelector(".as-copy").addEventListener("click", function (e) {

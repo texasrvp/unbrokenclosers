@@ -1,0 +1,328 @@
+[
+  {
+    "slug": "price-too-high",
+    "objection": "Your price is too high.",
+    "industry": "general",
+    "means": "Almost never a final no. It usually means they don’t yet see enough value for the number, they’re comparing you to something cheaper, or they’re testing whether the price moves if they push.",
+    "avoid": "Dropping the price in the first minute, or running to your manager. Both teach the buyer that pushing works, and both cost you margin you didn’t need to give.",
+    "steps": [
+      "Agree that it’s a real number. Arguing makes people dig in.",
+      "Ask what they’re comparing it to: another offer, another product, or the budget in their head.",
+      "Separate the price from the product. If it’s the right fit, you’re working out a number together, not starting over."
+    ],
+    "say": "“Fair enough, it’s a real investment. Too high compared to what: another offer you’ve seen, or the budget you had in mind? Price aside, is this the one you actually want?”",
+    "variants": {
+      "auto": "“I hear you. Price aside for one second, is this the truck you want to be driving? If it is, let’s look at the numbers together and see what makes sense.”",
+      "insurance": "“That’s fair. Let’s look at what’s driving the premium. We can adjust coverage, but let’s make sure we don’t cut the part that protects your family most.”"
+    },
+    "drill": "Your price is too high."
+  },
+  {
+    "slug": "think-about-it",
+    "objection": "I need to think about it.",
+    "industry": "general",
+    "means": "Something is unresolved, and they don’t want to say what. It might be the product, the payment, the timing or trust in you. “Think about it” is a polite way to leave without conflict.",
+    "avoid": "“What’s there to think about?” or a fake deadline. Pressure confirms their worry that you care more about the sale than about them.",
+    "steps": [
+      "Give them permission. It takes the pressure off and keeps them talking.",
+      "Ask which part needs more thought, and offer two or three options so it’s easy to answer.",
+      "Solve that one piece now, or set a specific time to follow up with the answer."
+    ],
+    "say": "“Of course, it’s a big decision. Just so I’m helpful while you think: is it the product itself, the monthly number, or the timing?”",
+    "variants": {
+      "auto": "“Absolutely. So I can help, is it the vehicle, the payment or the timing? If it’s the payment, let’s look at one more option before you go.”",
+      "insurance": "“Totally fair. Is it the coverage amount, the monthly cost, or just wanting to talk it over at home? I can send you a one-page summary either way.”"
+    },
+    "drill": "I need to think about it."
+  },
+  {
+    "slug": "talk-to-my-spouse",
+    "objection": "I need to talk to my spouse first.",
+    "industry": "general",
+    "means": "Often true and smart. Sometimes it’s a softer “no” or a way to buy time. Either way, the decision-maker who isn’t in the room has questions you can answer now.",
+    "avoid": "Pushing them to decide without their partner, or handing over a card and hoping. The first breaks trust; the second usually ends the deal.",
+    "steps": [
+      "Respect it out loud. It shows you’re on their side.",
+      "Ask what their partner will want to know first.",
+      "Get them that answer now, and offer to include the partner by phone, video or a quick return visit."
+    ],
+    "say": "“That’s smart, it’s a decision for both of you. What do you think they’ll ask first? Let’s get you that answer now so you’re not stuck guessing at home.”",
+    "variants": {
+      "auto": "“Makes sense. Want to give them a quick call or FaceTime from here? You can show them the truck, and I’ll answer anything they ask.”",
+      "insurance": "“Of course. Would it help if we set 15 minutes when you’re both home? I’ll walk you both through it so nobody has to explain it secondhand.”"
+    },
+    "drill": "I need to talk to my wife before I decide anything."
+  },
+  {
+    "slug": "just-looking",
+    "objection": "I’m just looking.",
+    "industry": "general",
+    "means": "A reflex, not a plan. Most buyers have already researched online and are protecting themselves from a pushy pitch. They want room, not to be ignored.",
+    "avoid": "“Okay, let me know if you need anything,” then walking away, or launching into a sales pitch. The first loses them; the second proves their fear right.",
+    "steps": [
+      "Agree warmly. Everyone starts there.",
+      "Ask about what they’ve already researched or what caught their eye.",
+      "Offer one small, useful next step without asking them to commit to anything."
+    ],
+    "say": "“Perfect, that’s where everybody starts. What caught your eye when you were looking online?”",
+    "variants": {
+      "auto": "“Great, everyone starts there. What did you see online that brought you in today? I’ll get you the keys so you can look without anyone hovering.”"
+    },
+    "drill": "I’m just looking today."
+  },
+  {
+    "slug": "cheaper-somewhere-else",
+    "objection": "I can get it cheaper somewhere else.",
+    "industry": "general",
+    "means": "They want the best deal and want you to know they’ve shopped. Sometimes the other offer is real and identical; often it’s different in ways they haven’t noticed.",
+    "avoid": "Trashing the competitor or claiming they hide fees. It sounds defensive and makes you look like the one with something to hide.",
+    "steps": [
+      "Thank them for shopping. Smart buyers compare.",
+      "Ask to see or understand the other offer so you’re comparing the same thing.",
+      "Show the differences that matter to them, and be honest if theirs really is better on price."
+    ],
+    "say": "“Good for you for shopping around. Can we put the two side by side? If it’s truly the same thing, I want to know. If it isn’t, you should know too.”",
+    "variants": {
+      "auto": "“That’s fair to check. Do you have the other quote handy? Let’s compare out-the-door numbers, same miles, same equipment, and see where we really stand.”",
+      "insurance": "“Glad you’re comparing. Let’s line up the coverage limits and deductibles. A lower premium sometimes means less protection when you need it.”"
+    },
+    "drill": "I can get this same thing $1,500 cheaper across town."
+  },
+  {
+    "slug": "trade-offer-too-low",
+    "objection": "Your trade offer is way too low.",
+    "industry": "auto",
+    "means": "They’ve looked up a number online, they’re emotionally attached to the vehicle, or they’re focused on the trade instead of the whole deal.",
+    "avoid": "“That’s what the market says, nothing I can do,” or bumping it $500 to close fast. One ends the conversation; the other trains them to push harder.",
+    "steps": [
+      "Acknowledge that it feels low. Their number came from somewhere.",
+      "Walk through how you got your number together: condition, miles, auction data, reconditioning.",
+      "Bring the focus back to the difference they’ll pay, not the trade number alone."
+    ],
+    "say": "“I get it, nobody likes that number. Let’s look at how we got there together, and then let’s look at the difference you’d actually pay, because that’s the number that hits your wallet.”",
+    "variants": {},
+    "drill": "Your trade offer is way too low. I looked it up online."
+  },
+  {
+    "slug": "payment-too-high",
+    "objection": "The monthly payment is too high.",
+    "industry": "general",
+    "means": "They like the product but the budget doesn’t fit yet. This is a math problem you can solve together, not a reason to give up.",
+    "avoid": "Stretching the term without explaining it, or guessing at a number. Surprises later destroy trust and cause cancellations.",
+    "steps": [
+      "Ask what monthly number they’re comfortable with.",
+      "Show the levers clearly: down payment, term, coverage or options.",
+      "Let them choose. People keep deals they built themselves."
+    ],
+    "say": "“Let’s fix that. What number would you be comfortable with each month? Then I’ll show you exactly what moves it, and you pick what makes sense.”",
+    "variants": {
+      "insurance": "“Okay, what monthly amount fits your budget? Let’s see what coverage we can keep at that number, and I’ll tell you plainly what changes.”"
+    },
+    "drill": "That monthly payment is more than I wanted to spend."
+  },
+  {
+    "slug": "not-ready-today",
+    "objection": "I’m not ready to buy today.",
+    "industry": "general",
+    "means": "They may be early in the process, or something is holding them back that they haven’t named. Either way, they’re still talking to you, which is a good sign.",
+    "avoid": "Fake urgency (“this price is only good today”). Buyers can smell it, and it makes everything else you said sound less true.",
+    "steps": [
+      "Agree that today doesn’t have to be the day.",
+      "Ask what would need to be true for them to feel ready.",
+      "Set a clear, specific next step: a date, a call or an item to bring back."
+    ],
+    "say": "“No problem, today doesn’t have to be the day. What would need to be true for you to feel ready? Let’s figure out what you need, and when.”",
+    "variants": {},
+    "drill": "I’m not ready to buy today."
+  },
+  {
+    "slug": "send-me-information",
+    "objection": "Just send me some information.",
+    "industry": "general",
+    "means": "Often a polite brush-off to end the call. Sometimes they genuinely want to review something. The only way to know is to ask what would be useful.",
+    "avoid": "Emailing a generic brochure and waiting. It almost never gets read, and you lose the conversation.",
+    "steps": [
+      "Say yes. Arguing makes it a fight.",
+      "Ask what specifically they want to see so you send the right thing.",
+      "Book a short follow-up to go over it together."
+    ],
+    "say": "“Happy to. So I don’t bury you in stuff you won’t read, what would be most useful to see? And let’s grab 10 minutes Thursday to go over it.”",
+    "variants": {
+      "media": "“Sure. So it’s actually useful: are you more interested in who sees the ad, what it costs, or results from businesses like yours? I’ll send that and call Thursday to walk through it.”"
+    },
+    "drill": "Just email me some information and I’ll look at it."
+  },
+  {
+    "slug": "already-have-someone",
+    "objection": "I already have someone for that.",
+    "industry": "general",
+    "means": "They have a relationship and don’t want to feel disloyal. They might be happy, or they might just not have heard a better reason to compare.",
+    "avoid": "Criticizing their current provider. People defend their choices, especially to a stranger.",
+    "steps": [
+      "Respect the relationship. Loyalty is a good trait in a customer.",
+      "Ask what they like most about their current provider.",
+      "Offer a no-pressure second opinion, framed around making sure they’re covered or getting the best value."
+    ],
+    "say": "“That’s great, a good relationship matters. What do you like most about working with them? Most people I help were happy too; they just wanted a second set of eyes.”",
+    "variants": {
+      "insurance": "“Glad you have someone you trust. When did they last review your coverage with you? A free second look takes 15 minutes, and if your agent has you covered, I’ll tell you so.”"
+    },
+    "drill": "I already have an agent for that."
+  },
+  {
+    "slug": "happy-with-what-i-have",
+    "objection": "I’m happy with what I have.",
+    "industry": "general",
+    "means": "No pain right now, so no reason to change. Your job isn’t to invent a problem, it’s to find out if there’s one they haven’t noticed.",
+    "avoid": "Pushing features. If they don’t feel a need, more features just sound like more cost.",
+    "steps": [
+      "Congratulate them. Happy customers are rare.",
+      "Ask one or two questions about what’s changed or what they’d improve if they could.",
+      "If nothing comes up, leave the door open and stay in touch."
+    ],
+    "say": "“That’s great to hear. Out of curiosity, if you could change one thing about it, what would it be?”",
+    "variants": {},
+    "drill": "Honestly, I’m happy with what I have."
+  },
+  {
+    "slug": "no-time-right-now",
+    "objection": "I don’t have time right now.",
+    "industry": "general",
+    "means": "Usually true. They’re busy and you interrupted. It isn’t a no to what you offer, just to this moment.",
+    "avoid": "Talking faster to squeeze in your pitch. It confirms you’re ignoring what they just told you.",
+    "steps": [
+      "Respect their time immediately.",
+      "Give a one-sentence reason it’s worth a few minutes later.",
+      "Ask for a specific time instead of “I’ll call you back.”"
+    ],
+    "say": "“Totally understand, I caught you at a bad time. In one sentence: I help businesses like yours get more customers without more ad spend. Is tomorrow at 10 or Thursday at 2 better for five minutes?”",
+    "variants": {},
+    "drill": "I don’t have time for this right now."
+  },
+  {
+    "slug": "been-burned-before",
+    "objection": "I’ve been burned before.",
+    "industry": "general",
+    "means": "Trust is the real objection. They’re not resisting you, they’re resisting the last person who let them down.",
+    "avoid": "“We’re not like them.” Everyone says that. Proof works; promises don’t.",
+    "steps": [
+      "Ask what happened, and actually listen.",
+      "Acknowledge it plainly. Don’t defend the industry.",
+      "Show specifically how you’d prevent that from happening, with something they can check."
+    ],
+    "say": "“I’m sorry that happened. What went wrong? I’d like to know so I can show you exactly how I’d handle it differently, in writing.”",
+    "variants": {
+      "media": "“That’s fair, a lot of people have paid for ads that didn’t work. What happened with the last one? Let’s look at what went wrong before we talk about anything new.”"
+    },
+    "drill": "I tried something like this before and got burned."
+  },
+  {
+    "slug": "shop-around",
+    "objection": "I want to shop around first.",
+    "industry": "general",
+    "means": "They want to feel confident they made a smart choice. Comparing is how they protect themselves from regret.",
+    "avoid": "Telling them other places are worse, or trying to keep them from leaving. It reads as fear.",
+    "steps": [
+      "Encourage it. Confident salespeople don’t fear comparison.",
+      "Give them a short checklist of what to compare, so your strengths are on it.",
+      "Ask permission to follow up after they’ve looked."
+    ],
+    "say": "“You should. When you do, compare these three things, not just the price: what’s included, what happens if something goes wrong, and who you’ll actually deal with. Can I check in Friday?”",
+    "variants": {},
+    "drill": "I want to shop around before I decide."
+  },
+  {
+    "slug": "cant-afford-it",
+    "objection": "I can’t afford it right now.",
+    "industry": "general",
+    "means": "Could be a real budget limit, or could mean they don’t see enough value for the cost. Respect it and find out which.",
+    "avoid": "Making them feel judged or broke. Shame ends conversations for good.",
+    "steps": [
+      "Take it seriously and without judgment.",
+      "Ask if it’s the total cost, the monthly amount or the timing.",
+      "Offer a smaller starting point if there’s a real fit, or a time to revisit."
+    ],
+    "say": "“I appreciate you being straight with me. Is it the total, the monthly amount or just the timing? If there’s a smaller way to start that still helps, I’ll show you. If not, I’ll tell you that too.”",
+    "variants": {
+      "insurance": "“Thanks for being honest. Let’s see if there’s a starting amount that protects what matters most for a number that fits. Even a small policy beats none.”"
+    },
+    "drill": "I just can’t afford it right now."
+  },
+  {
+    "slug": "dont-need-it",
+    "objection": "I don’t need it.",
+    "industry": "general",
+    "means": "They don’t see the problem it solves for them. Either it really isn’t a fit, or they haven’t pictured the situation where it matters.",
+    "avoid": "Scare tactics. Fear-based pitches feel manipulative, even when the risk is real.",
+    "steps": [
+      "Accept it as possibly true.",
+      "Ask a question that helps them picture the situation honestly.",
+      "Let them decide, and leave the door open."
+    ],
+    "say": "“You might be right. Can I ask one question? If something happened next month, what would your plan be?”",
+    "variants": {
+      "insurance": "“You might be right. Quick question: if something happened to you tomorrow, how long could your family cover the bills? If the answer is ‘a long time,’ you may not need it.”"
+    },
+    "drill": "I don’t need life insurance."
+  },
+  {
+    "slug": "call-me-later",
+    "objection": "Call me back in a few months.",
+    "industry": "general",
+    "means": "Sometimes a real timing issue, like a budget cycle or a lease ending. Often it’s a polite way to end the call.",
+    "avoid": "“Sure!” and hanging up. A vague callback is a soft no that you agreed to.",
+    "steps": [
+      "Agree, and ask what happens in a few months that makes it a better time.",
+      "If the reason is real, book the exact date now.",
+      "If it isn’t, ask what would make it worth talking sooner."
+    ],
+    "say": "“Happy to. What changes in a few months that makes it a better time? Let’s put a date on the calendar so I don’t catch you at a bad moment.”",
+    "variants": {},
+    "drill": "Call me back in a few months."
+  },
+  {
+    "slug": "no-extended-warranty",
+    "objection": "I don’t want an extended warranty.",
+    "industry": "fi",
+    "means": "They’ve heard warranties are a rip-off, or they’re worn out from a long purchase and want to leave. They haven’t weighed the risk for their vehicle and how long they’ll keep it.",
+    "avoid": "Pressure or scare stories. In F&I, trust is the product, and pushing hard causes cancellations and complaints.",
+    "steps": [
+      "Respect the decision and say it’s their choice.",
+      "Ask how long they plan to keep the vehicle and how they’d handle a big repair.",
+      "Show the real cost of one common repair compared with the protection, then let them decide."
+    ],
+    "say": "“Totally your call. How long do you plan to keep it? Most people I talk to keep it past the factory warranty, so let me show you what one repair costs versus the coverage, and you decide.”",
+    "variants": {},
+    "drill": "I don’t want an extended warranty."
+  },
+  {
+    "slug": "whats-your-best-price",
+    "objection": "Just give me your best price.",
+    "industry": "general",
+    "means": "They want to skip the dance and not feel taken advantage of. Many buyers expect to be lowballed and want to protect themselves.",
+    "avoid": "Throwing out a number before you know what they want. You’ll negotiate against yourself.",
+    "steps": [
+      "Agree that you’ll be straightforward.",
+      "Confirm exactly what they want first, so the price means something.",
+      "Give a clear, honest number with what’s included, and explain it."
+    ],
+    "say": "“I’ll be straight with you. Let me make sure I’m pricing exactly what you want first, so the number is real and not a teaser. Then I’ll walk you through every line.”",
+    "variants": {},
+    "drill": "Just give me your best price, I don’t have all day."
+  },
+  {
+    "slug": "advertising-doesnt-work",
+    "objection": "Advertising doesn’t work for my business.",
+    "industry": "media",
+    "means": "They’ve spent money before without seeing results, or they get most of their business from word of mouth and can’t see where ads fit.",
+    "avoid": "Arguing with their experience or quoting national statistics. Their own story matters more to them than any chart.",
+    "steps": [
+      "Ask what they tried, and what happened.",
+      "Find what was missing: the wrong audience, the wrong message, or no way to measure it.",
+      "Propose something small and measurable, tied to how they already win customers."
+    ],
+    "say": "“That’s fair, a lot of ads don’t work. What did you try before? Most of the time it wasn’t advertising that failed, it was who saw it or what it said. Let’s look at that first.”",
+    "variants": {},
+    "drill": "Advertising doesn’t work for my business. I tried it before."
+  }
+]
