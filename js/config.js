@@ -85,11 +85,11 @@ window.UC_CONFIG = {
     events: {
       "default": "30min",
       workshop: "30min",               // tip: make a 45-min "free-team-workshop" event and put that slug here
-      team: "lawyer-consultation",     // your "Unbroken Closers Consultation" event
+      team: "consultation",            // your "Unbroken Closers Consultation" event
       circle: "15min",
       bootcamp: "30min",
       manager: "30min",
-      fi: "lawyer-consultation",
+      fi: "consultation",
       speaking: "30min"
     }
   },
