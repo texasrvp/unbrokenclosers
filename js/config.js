@@ -84,7 +84,7 @@ window.UC_CONFIG = {
     // Matched to the events on your Cal.com page today. Create the others in Cal.com, then put their slugs here.
     events: {
       "default": "30min",
-      workshop: "30min",               // tip: make a 45-min "free-team-workshop" event and put that slug here
+      workshop: "45-minute-free-team-workshop-event",
       team: "consultation",            // your "Unbroken Closers Consultation" event
       circle: "15min",
       bootcamp: "30min",
