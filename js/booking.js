@@ -39,7 +39,7 @@
     left.appendChild(types);
     var note = document.createElement("div");
     note.className = "cal-note small";
-    note.innerHTML = '<p class="mb-0"><b>Free workshop?</b> You get a signed copy of LJ’s book. On site, he hands it to you; for video workshops, add your mailing address in the booking notes.</p>';
+    note.innerHTML = '<img src="img/book-cover.jpg" alt="" width="64" height="96" style="float:left;width:64px;height:auto;margin:0 0.75rem 0 0;border-radius:2px 4px 4px 2px;box-shadow:0 4px 10px rgba(0,0,0,0.2)"><p class="mb-0"><b>Free workshop?</b> You get a signed copy of LJ’s book. On site, he hands it to you; for video workshops, add your mailing address when you book.</p><div style="clear:both"></div>';
     left.appendChild(note);
     var right = document.createElement("div");
     right.className = "panel cal-panel";
