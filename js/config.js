@@ -80,16 +80,17 @@ window.UC_CONFIG = {
   // events = the event slug for each session type (the part after your name, e.g. cal.com/YOURNAME/free-team-workshop).
   // Any session without its own event uses "default". Blank username = the request form below is used instead.
   calcom: {
-    username: "",
+    username: "l.-stephens-738n6h",
+    // Matched to the events on your Cal.com page today. Create the others in Cal.com, then put their slugs here.
     events: {
       "default": "30min",
-      workshop: "free-team-workshop",
-      team: "strategy-call",
-      circle: "circle-intro",
-      bootcamp: "plan-a-bootcamp",
-      manager: "manager-coaching-intro",
-      fi: "fi-strategy-call",
-      speaking: "speaking-inquiry"
+      workshop: "30min",               // tip: make a 45-min "free-team-workshop" event and put that slug here
+      team: "lawyer-consultation",     // your "Unbroken Closers Consultation" event
+      circle: "15min",
+      bootcamp: "30min",
+      manager: "30min",
+      fi: "lawyer-consultation",
+      speaking: "30min"
     }
   },
   calendlyUrl: "",
