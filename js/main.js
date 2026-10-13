@@ -227,6 +227,20 @@
     return ok;
   };
 
+  /* ---------- Follow-up emails (Netlify function + Resend) ---------- */
+  // Forms that start the 5-email follow-up. Netlify Forms still records every signup.
+  var NURTURE = { newsletter: "rep", assessment: "rep", "objection-card": "rep" };
+  window.UC_nurture = function (form, extra) {
+    var track = NURTURE[form.getAttribute("name")];
+    if (!cfg.emailFollowUp || !track) return Promise.resolve(null);
+    var get = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value : ""; };
+    var body = { track: track, email: get("email"), name: get("name"), area: get("top_key"), role: get("role"), company_url: get("company_url"), source: form.getAttribute("name") + " " + location.pathname };
+    if (extra) Object.keys(extra).forEach(function (k) { body[k] = extra[k]; });
+    return fetch("/api/nurture", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { d.httpOk = r.ok; return d; }); })
+      .catch(function () { return null; });
+  };
+
   window.UC_submitForm = function (form, status, onDone) {
     var btn = form.querySelector('button[type="submit"]');
     var label = btn ? btn.textContent : "";
@@ -235,7 +249,15 @@
     fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
       .then(function (res) {
         if (!res.ok) throw new Error(res.status);
-        window.UC_track("form_submit", { form: form.getAttribute("name") });
+        var fname = form.getAttribute("name");
+        window.UC_track("form_submit", { form: fname });
+        window.UC_track("generate_lead", { source: fname, from: location.pathname });
+        if (fname === "booking") {
+          var sv = (form.querySelector('input[name="session"]:checked') || {}).value;
+          window.UC_track("booking_request", { session: sv });
+          if (sv === "workshop") window.UC_track("book_offer_claim", { from: location.pathname });
+        }
+        window.UC_nurture(form);
         if (onDone) { onDone(); if (btn) { btn.disabled = false; btn.textContent = label; } return; }
         location.href = form.getAttribute("action") || "thanks.html";
       })
@@ -446,6 +468,7 @@
     var copy = {
       awards: ["Quote request received.", "We'll send pricing and a digital proof within one business day. Nothing prints until you approve it."],
       nominate: ["Nomination received.", "Thank you for recognizing someone who earned it. LJ will reach out to their manager soon."],
+      results: ["Thank you for sharing.", "LJ reads every one. If you checked the box to share, he\u2019ll confirm the exact wording with you before anything goes up."],
       referral: ["Thanks for the introduction.", "LJ will reach out to them within a few days and let them know you sent us. We\u2019ll keep you posted."]
     }[f];
     if (copy) {
@@ -454,4 +477,107 @@
       var bk = document.getElementById("booked"); if (bk) bk.remove();
     }
   }
+
+  /* ---------- Sticky action bar on phones: assessment + book ---------- */
+  var pageName = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "");
+  if (["book", "thanks", "404"].indexOf(pageName) === -1) {
+    var bar2 = document.getElementById("sticky-cta");
+    if (!bar2) {
+      bar2 = document.createElement("div"); bar2.className = "sticky-cta"; bar2.id = "sticky-cta";
+      document.body.appendChild(bar2); document.body.classList.add("has-sticky");
+    }
+    var isManagerPage = /^(index|programs|dealerships|insurance|fi|workshop|home-services|advertising-sales|team-scorecard|awards|wall)$/.test(pageName);
+    var second = isManagerPage
+      ? '<a class="btn btn-ghost" href="team-scorecard.html" data-track="sticky_scorecard">Score my team</a>'
+      : '<a class="btn btn-ghost" href="assessment.html" data-track="sticky_assessment">3-min assessment</a>';
+    bar2.classList.add("sticky-two");
+    bar2.innerHTML = second + '<a class="btn btn-stripe" href="book.html?session=workshop" data-track="sticky_book">Book a call</a>';
+    if (!sticky) { sticky = bar2; onScroll(); }
+  }
+
+  /* ---------- More analytics: Skool joins, practice drills, downloads ---------- */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a"); if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (/skool\.com\/unbroken-closers[^/]*\/about/.test(href)) window.UC_track("skool_join_click", { from: location.pathname });
+    else if (/skool\.com/.test(href)) window.UC_track("skool_login_click", { from: location.pathname });
+    if (a.hasAttribute("data-practice")) window.UC_track("practice_click", { objection: a.getAttribute("data-practice"), from: location.pathname });
+    if (/\.pdf($|\?)/.test(href)) window.UC_track("file_download", { file: href });
+  });
+
+  /* ---------- "Practice this objection" links into the Fresh Up trainer ---------- */
+  window.UC_practiceUrl = function (text, industry) {
+    var base = cfg.practiceUrl || "https://freshupleads.com/train";
+    var q = "objection=" + encodeURIComponent(text) + (industry ? "&industry=" + encodeURIComponent(industry) : "") + "&utm_source=unbrokenclosers";
+    return base + (base.indexOf("?") === -1 ? "?" : "&") + q;
+  };
+  document.querySelectorAll("a[data-practice]").forEach(function (a) {
+    a.href = window.UC_practiceUrl(a.getAttribute("data-practice"), a.getAttribute("data-industry"));
+    a.target = "_blank"; a.rel = "noopener";
+  });
+
+  /* ---------- 90-second hello video ---------- */
+  var hv = cfg.helloVideo || {};
+  document.querySelectorAll("[data-hello-video]").forEach(function (box) {
+    var frame = box.querySelector(".hello-frame");
+    if (!frame || !(hv.youtubeId || hv.vimeoId || hv.mp4)) { box.hidden = true; return; }
+    box.hidden = false;
+    if (hv.mp4) {
+      var v = document.createElement("video");
+      v.controls = true; v.preload = "none"; v.playsInline = true; v.src = hv.mp4; if (hv.poster) v.poster = hv.poster;
+      v.setAttribute("aria-label", "A 90-second hello from LJ");
+      v.addEventListener("play", function () { window.UC_track("video_play", { video: "hello" }); }, { once: true });
+      frame.appendChild(v);
+      return;
+    }
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "hello-play";
+    btn.setAttribute("aria-label", "Play LJ's 90-second hello video");
+    if (hv.youtubeId) btn.style.backgroundImage = "url(https://i.ytimg.com/vi/" + encodeURIComponent(hv.youtubeId) + "/hqdefault.jpg)";
+    else if (hv.poster) btn.style.backgroundImage = "url(" + hv.poster + ")";
+    btn.innerHTML = '<span class="hello-icon" aria-hidden="true"></span>';
+    btn.addEventListener("click", function () {
+      var src = hv.youtubeId
+        ? "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(hv.youtubeId) + "?autoplay=1&rel=0"
+        : "https://player.vimeo.com/video/" + encodeURIComponent(hv.vimeoId) + "?autoplay=1";
+      frame.innerHTML = '<iframe src="' + src + '" title="A 90-second hello from LJ" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      window.UC_track("video_play", { video: "hello" });
+    });
+    frame.appendChild(btn);
+  });
+
+  /* ---------- Credibility strip numbers (only real ones from config) ---------- */
+  var cred = cfg.credentials || {};
+  document.querySelectorAll("[data-cred]").forEach(function (el) {
+    var v = cred[el.getAttribute("data-cred")];
+    var item = el.closest("li") || el;
+    if (v === null || v === undefined || v === "") { item.hidden = true; return; }
+    el.textContent = typeof v === "number" ? v.toLocaleString("en-US") + (el.hasAttribute("data-plus") ? "+" : "") : v;
+  });
+
+  /* ---------- Closer of the Month Wall ---------- */
+  var wall = document.getElementById("winners-wall");
+  if (wall) {
+    var winners = (cfg.hallOfFame || []).slice().reverse();
+    var empty = document.getElementById("wall-empty");
+    if (!winners.length) { if (empty) empty.hidden = false; }
+    winners.forEach(function (w) {
+      var card = document.createElement("article"); card.className = "winner";
+      var ph = document.createElement("div"); ph.className = "winner-photo";
+      if (w.photo) { var im = document.createElement("img"); im.src = w.photo; im.alt = w.name; im.loading = "lazy"; im.width = 400; im.height = 400; ph.appendChild(im); }
+      else { ph.textContent = String(w.name || "?").split(" ").map(function (x) { return x.charAt(0); }).join("").slice(0, 2).toUpperCase(); ph.setAttribute("aria-hidden", "true"); }
+      var body = document.createElement("div"); body.className = "winner-body";
+      var mo = document.createElement("span"); mo.className = "winner-month"; mo.textContent = (w.award || "Closer of the Month") + " · " + (w.month || "");
+      var nm = document.createElement("h3"); nm.textContent = w.name;
+      var co = document.createElement("p"); co.className = "winner-co"; co.textContent = w.company || "";
+      body.appendChild(mo); body.appendChild(nm); body.appendChild(co);
+      if (w.why) { var why = document.createElement("p"); why.className = "winner-why"; why.textContent = w.why; body.appendChild(why); }
+      var share = document.createElement("button"); share.type = "button"; share.className = "as-tool winner-share"; share.textContent = "Copy link to share";
+      share.addEventListener("click", function () { copyText((cfg.siteUrl || location.origin) + "/wall.html#" + slugify(w.name + " " + (w.month || "")), share); });
+      body.appendChild(share);
+      card.id = slugify(w.name + " " + (w.month || ""));
+      card.appendChild(ph); card.appendChild(body); wall.appendChild(card);
+    });
+  }
+  function slugify(t) { return String(t).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
 })();

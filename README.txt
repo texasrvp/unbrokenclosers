@@ -78,3 +78,37 @@ OCT 2026 UPDATE
   (do that once 3 or more videos have a youtubeId in js/videos.js).
 - Free signed book: managers who book the Free Team Workshop get a signed copy. Video workshops ask
   for a mailing address on the booking form (field: book_mailing_address).
+
+
+=====================================================================
+OCTOBER 2026 UPGRADES: SETUP CHECKLIST
+=====================================================================
+
+1. CAL.COM BOOKING
+   In js/config.js, set calcom.username to the part after cal.com/ in your link.
+   In Cal.com, create an event for each session using these slugs (or change the slugs in config.js):
+     free-team-workshop (45 min), strategy-call (30), circle-intro (15), plan-a-bootcamp (30),
+     manager-coaching-intro (20), fi-strategy-call (30), speaking-inquiry (30)
+   Any session without its own event uses "default" (30min).
+   For the free workshop event, add a booking question: "Mailing address for your signed book (video workshops only)".
+   book.html?form=1 always shows the old request form as a backup.
+
+2. FOLLOW-UP EMAILS (Netlify → Site settings → Environment variables), then redeploy
+   RESEND_API_KEY       your Resend key
+   UC_EMAIL_FROM        e.g. LJ Stephens <lj@unbrokenclosers.com>  (verify unbrokenclosers.com in Resend → Domains first)
+   UC_NOTIFY_EMAIL      where scorecard leads go (default hello@unbrokenclosers.com)
+   UC_MAILING_ADDRESS   a mailing address or P.O. box (required in marketing emails by CAN-SPAM)
+   Sequences: reps (assessment, Armor Card, newsletter) and managers (Team Readiness Scorecard), 5 emails each.
+   Edit the words in netlify/functions/lib/sequences.js.
+
+3. HELLO VIDEO: record 90 seconds, upload to YouTube (unlisted is fine), put the ID in config.js → helloVideo.youtubeId.
+4. CREDIBILITY NUMBERS: config.js → credentials (years in sales, reps trained). Real numbers only; blank stays hidden.
+5. TESTIMONIALS: send clients to /results.html. Approved quotes go in config.js → testimonials.
+6. CLOSER OF THE MONTH WALL: add winners to config.js → hallOfFame (with their OK).
+7. OBJECTION LIBRARY: edit data/library.json, then run: python3 scripts/build.py
+8. SPEAKER ONE-SHEET: downloads/lj-stephens-speaker-one-sheet.pdf (source: scripts/one-sheet.html).
+9. GA4 events now sent: generate_lead, booking_request, booking_scheduled, book_offer_claim, scorecard_complete,
+   assessment_complete, skool_join_click, practice_click, file_download, video_play.
+   In GA4 → Admin → Events, mark generate_lead, booking_scheduled and skool_join_click as key events.
+
+Tests: npm test (functions) and python3 tests/smoke.py (every page in a browser).

@@ -1,0 +1,114 @@
+{
+ "scarcity": {
+  "name": "The Scarcity Voice",
+  "says": "“Who am I to ask for that much?”",
+  "chapter": "Why Do We Live Here?",
+  "story": "LJ grew up where money was always short and survival came first. He had to unlearn the idea that money is for other people before he could ask for it with confidence.",
+  "step": "Before your first customer today, say your price out loud five times, without apologizing or offering a discount."
+ },
+ "belonging": {
+  "name": "The Outsider Voice",
+  "says": "“They’re judging me before I say a word.”",
+  "chapter": "Birth Defects",
+  "story": "LJ lives with vitiligo, and the split face on the cover of his book is his own. He learned that buyers respond to how you show up, not how you look.",
+  "step": "Take the next up within ten seconds. Stand tall, smile and say your name first."
+ },
+ "comparison": {
+  "name": "The Comparison Trap",
+  "says": "“I’ll never be as good as the top guy.”",
+  "chapter": "Sibling Rivalry",
+  "story": "Growing up, LJ learned the difference between competing with someone and measuring your worth against them. One makes you better. The other keeps you stuck.",
+  "step": "Compare yourself only to last week’s you. Write down one number you’ll beat by Saturday."
+ },
+ "rejection": {
+  "name": "Taking No Personally",
+  "says": "“They said no to me, not to the deal.”",
+  "chapter": "Another New School",
+  "story": "Being the new kid again and again taught LJ how to walk into a room where nobody knows your name and win it over anyway.",
+  "step": "Collect three no’s on purpose today. Count them like points on a scoreboard."
+ },
+ "showingup": {
+  "name": "Nobody Showed Up for Me",
+  "says": "“I have to figure this out alone.”",
+  "chapter": "Parents · Grandparent Gold",
+  "story": "LJ sorted the people in his life into two groups: the ones who showed up and the ones who didn’t. His grandparents showed up, again and again. He decided to be that person for others.",
+  "step": "Ask your manager or top rep for ten minutes of help on one deal this week."
+ },
+ "discipline": {
+  "name": "The Mood Swing",
+  "says": "“I’ll make my calls when I feel like it.”",
+  "chapter": "Grandparent Gold · I Joined the Military",
+  "story": "Grandma Dorothy taught LJ that responsibility doesn’t have a date or a time. The military turned that lesson into a daily habit.",
+  "step": "Pick one daily non-negotiable, like ten follow-up calls before noon, and do it five days straight."
+ },
+ "purpose": {
+  "name": "Lost Your Why",
+  "says": "“Good enough is good enough.”",
+  "chapter": "Stay Hungry · I’m a New Dad",
+  "story": "Becoming a father gave LJ a reason bigger than a paycheck. Staying hungry became a choice he makes every morning.",
+  "step": "Write down who you’re selling for, and put it where you’ll see it before every customer."
+ },
+ "resilience": {
+  "name": "Quitting When It Hurts",
+  "says": "“Maybe I’m just not cut out for this.”",
+  "chapter": "Toughness · Keep Going",
+  "story": "LJ has been knocked down hard, more than once. The title of his book is the lesson: stripped bare, but unbroken.",
+  "step": "After your next tough customer, take a two-minute reset outside, then take the very next up."
+ },
+ "planted": {
+  "name": "Waiting for Better Soil",
+  "says": "“I’d crush it if I worked somewhere else.”",
+  "chapter": "Landing on Earth",
+  "story": "LJ’s story starts where he landed, not where he would have chosen. The first lesson of his life became the first lesson of selling: grow where you’re planted.",
+  "step": "Write down three things you control at your store this week, and master one of them."
+ },
+ "responsibility": {
+  "name": "The Blame Game",
+  "says": "“It’s not my fault I missed.”",
+  "chapter": "Thank You, Tom Greene",
+  "story": "LJ gave a whole chapter to thanking Tom Greene, and the lesson he carries from it is simple: you are responsible for you.",
+  "step": "For one week, end every miss with “What could I have done differently?” instead of “Why did that happen to me?”"
+ },
+ "circle": {
+  "name": "The Wrong Circle",
+  "says": "“I’d rather hang with the people who keep it comfortable.”",
+  "chapter": "Swimming with Salespeople",
+  "story": "LJ learned to swim in sales by staying close to people who were better than him. Iron sharpens iron: you become like the people you spend your day with.",
+  "step": "Spend 15 minutes this week watching your top rep work a customer, then ask them one question about it."
+ },
+ "commission": {
+  "name": "The Commission Love Affair",
+  "says": "“What’s in it for me on this deal?”",
+  "chapter": "The Real Cost of Love",
+  "story": "LJ looks hard at what it costs to love the wrong things. In sales, falling in love with the commission instead of the customer costs you the repeat business and referrals that build a career.",
+  "step": "On your next three customers, decide what’s right for them before you think about what you’ll make."
+ },
+ "promises": {
+  "name": "Promises That Slip",
+  "says": "“I’ll call them back... eventually.”",
+  "chapter": "More Caught Than Taught",
+  "story": "LJ learned that values are more caught than taught. Customers don’t remember what you said. They remember whether you did what you said you’d do.",
+  "step": "Write down every promise you make to a customer this week, and check each one off when it’s done."
+ },
+ "connection": {
+  "name": "Just Another Up",
+  "says": "“Next customer, same pitch.”",
+  "chapter": "A Special Customer",
+  "story": "One of LJ’s core lessons comes from the chapter “A Special Customer”: we all need each other. Every customer is a person first, and the ones you treat that way remember you.",
+  "step": "Learn one personal detail about each customer this week, and mention it in your follow-up."
+ },
+ "selfbelief": {
+  "name": "Selling Yourself Short",
+  "says": "“I’m just an average salesperson.”",
+  "chapter": "A Better Version of Me",
+  "story": "LJ’s message in “A Better Version of Me” is direct: you are better than you think. Most reps stop growing long before they reach their ceiling.",
+  "step": "Set one goal this month that’s 20% above your best month ever, and tell someone about it."
+ },
+ "tracking": {
+  "name": "Flying Blind",
+  "says": "“I don’t really know my numbers.”",
+  "chapter": "The Road Less Travelled",
+  "story": "LJ writes that most people quit too soon and never track their progress. The ones who keep score can see they’re winning before the paycheck shows it.",
+  "step": "Track three numbers every day this week: conversations, appointments and sales. Review them on Friday."
+ }
+}

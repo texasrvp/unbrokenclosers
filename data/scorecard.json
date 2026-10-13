@@ -1,0 +1,91 @@
+{
+  "scale": ["Not at all", "Rarely", "Sometimes", "Mostly", "Every time"],
+  "areas": [
+    {
+      "key": "onboarding",
+      "name": "New-hire ramp",
+      "q": "New reps follow a written plan for their first 30 days instead of shadowing whoever is free.",
+      "fix": "Write a one-page 30-day plan: one skill per week, who trains it, and what a new rep must show you by Friday.",
+      "link": "huddle-plan.html",
+      "linkText": "Use the 30-Day Huddle Plan"
+    },
+    {
+      "key": "practice",
+      "name": "Practice",
+      "q": "Reps roleplay real customer conversations at least once a week.",
+      "fix": "Run one 10-minute roleplay every week on the objection you heard most. Pair reps up, swap roles, and give one note each.",
+      "link": "objection-library.html",
+      "linkText": "Pick from the Objection Library"
+    },
+    {
+      "key": "objections",
+      "name": "Objection handling",
+      "q": "Every rep answers the five most common objections the same, proven way.",
+      "fix": "Agree on one answer for each of your top five objections and put it on a card every rep carries.",
+      "link": "objection-card.html",
+      "linkText": "Print the Objection Armor Card"
+    },
+    {
+      "key": "followup",
+      "name": "Follow-up",
+      "q": "Every customer who leaves without buying gets a follow-up plan within 24 hours.",
+      "fix": "Make an end-of-day rule: no unsold customer goes home without a next contact date in the CRM, checked by a manager.",
+      "link": "daily-tracker.html",
+      "linkText": "Use the Daily Tracker"
+    },
+    {
+      "key": "numbers",
+      "name": "Knowing the numbers",
+      "q": "Each rep can tell you their own closing ratio, appointments and units for the month.",
+      "fix": "Have every rep track three numbers daily (conversations, appointments, sales) and review them with you on Friday.",
+      "link": "daily-tracker.html",
+      "linkText": "Use the Daily Tracker"
+    },
+    {
+      "key": "coaching",
+      "name": "One-on-one coaching",
+      "q": "Every rep gets a one-on-one coaching conversation with a manager every week.",
+      "fix": "Block 15 minutes per rep per week. Ask three questions: what went well, what got stuck, what one thing you'll do differently.",
+      "link": "programs.html#managers",
+      "linkText": "See Manager Coaching"
+    },
+    {
+      "key": "recognition",
+      "name": "Recognition",
+      "q": "Top performers are recognized in front of the team every month with something they can keep.",
+      "fix": "Name a Closer of the Month at your first meeting of the month, say exactly what they did, and hand them something they keep.",
+      "link": "awards.html",
+      "linkText": "See Closer of the Month awards"
+    },
+    {
+      "key": "huddle",
+      "name": "Morning huddle",
+      "q": "The team starts each day with a short, focused huddle that trains one skill.",
+      "fix": "Keep huddles to 10 minutes: one number, one skill drilled for two minutes, one goal per rep for the day.",
+      "link": "notes-morning-huddle.html",
+      "linkText": "Read: The Morning Huddle"
+    },
+    {
+      "key": "retention",
+      "name": "Keeping reps",
+      "q": "Most new reps are still on the team after 90 days.",
+      "fix": "Check in with every new rep at day 30, 60 and 90. Ask what would make them quit, and fix the first thing they name.",
+      "link": "index.html#calculator",
+      "linkText": "See what turnover costs you"
+    },
+    {
+      "key": "resilience",
+      "name": "Bouncing back",
+      "q": "After a slow week, the team gets back to work instead of complaining or coasting.",
+      "fix": "After a slow week, name it in Monday's huddle, pick one activity number to win this week, and celebrate the first rep who hits it.",
+      "link": "assessment.html",
+      "linkText": "Have reps take the Unbroken Assessment"
+    }
+  ],
+  "tiers": [
+    { "min": 80, "label": "Field Ready", "text": "Your team has strong habits. The opportunity is keeping them sharp and recognizing the people carrying the store." },
+    { "min": 60, "label": "Solid Base, Leaking Deals", "text": "The foundation is there, but a few gaps are costing you deals and reps every month. Fix your lowest three and the rest gets easier." },
+    { "min": 40, "label": "At Risk", "text": "Your reps are mostly figuring it out alone. Expect turnover and missed deals until practice, follow-up and coaching become routine." },
+    { "min": 0, "label": "Rebuild the Routine", "text": "Right now the team runs on talent and luck. A simple weekly rhythm of practice, numbers and recognition will change things fast." }
+  ]
+}
