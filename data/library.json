@@ -324,5 +324,140 @@
     "say": "“That’s fair, a lot of ads don’t work. What did you try before? Most of the time it wasn’t advertising that failed, it was who saw it or what it said. Let’s look at that first.”",
     "variants": {},
     "drill": "Advertising doesn’t work for my business. I tried it before."
+  },
+  {
+    "slug": "wait-for-rates",
+    "objection": "I'll wait for rates to come down.",
+    "industry": "auto",
+    "means": "They're worried about overpaying, and the news keeps telling them rates might drop. Usually the real question is whether the payment works today.",
+    "avoid": "Predicting where rates are going, or promising they can always refinance. Nobody knows, and a broken promise costs you the customer.",
+    "steps": [
+      "Agree that nobody wants to overpay.",
+      "Ask what it costs them to keep their current car running while they wait.",
+      "Show the real numbers today, and make sure the loan has no prepayment penalty so refinancing stays an option."
+    ],
+    "say": "“Thank you so much for sharing. Nobody knows when rates will drop, not me and not the bank. How's your current car holding up while you wait? Let's at least see the real numbers today, then you decide.”",
+    "variants": {},
+    "drill": "I'm going to wait for interest rates to come down."
+  },
+  {
+    "slug": "upside-down",
+    "objection": "I owe more on my car than it's worth.",
+    "industry": "auto",
+    "means": "They have negative equity and are embarrassed or worried it kills the deal. They need honesty more than a fast answer.",
+    "avoid": "Quietly rolling the negative equity into a longer loan without explaining it. It comes back as a cancellation, a bad review or a customer who never returns.",
+    "steps": [
+      "Thank them for being honest.",
+      "Lay it out plainly: what they owe, what it's worth, the difference.",
+      "Offer real options: more down, a vehicle that keeps the payment healthy, or waiting a few months and coming back."
+    ],
+    "say": "“Thank you so much for being straight with me. A lot of folks are in that spot. Here's what you owe, here's what it's worth, and here's the difference. Let's find the option you can still afford a year from now.”",
+    "variants": {},
+    "drill": "I owe more on my car than it's worth."
+  },
+  {
+    "slug": "buy-online",
+    "objection": "I'll just buy it online and have it delivered.",
+    "industry": "auto",
+    "means": "They like the convenience and want to skip the dealership hassle. They often haven't thought about the test drive, the trade or service after the sale.",
+    "avoid": "Trashing online sellers. It sounds defensive and pushes them toward the screen.",
+    "steps": [
+      "Agree that plenty of people buy online.",
+      "Recommend they drive the exact vehicle first.",
+      "Give them three questions to ask any seller: trade value, return policy and who services it."
+    ],
+    "say": "“Thank you so much for sharing. Hey, give it a shot. Before you click buy, drive the one you want, because you can't feel it on a screen. And ask them what they'll give for your trade, what happens if you don't like it, and who works on it later.”",
+    "variants": {},
+    "drill": "I'll just buy one online and have it delivered."
+  },
+  {
+    "slug": "rate-went-up",
+    "objection": "My rate went up again. I'm shopping around.",
+    "industry": "insurance",
+    "means": "They feel punished for staying loyal after years of rate increases. They'll leave unless someone shows them they're looking out for them.",
+    "avoid": "Waiting for them to call, or defending the carrier's increase. By the time they call, they've usually already got another quote.",
+    "steps": [
+      "Call clients before their renewal, not after.",
+      "Offer to shop it for them and review coverage, discounts, deductible and bundling.",
+      "If you can't beat the price, explain exactly why and what they'd give up to pay less."
+    ],
+    "say": "“Thank you so much for sharing. I can certainly see how you feel. I saw your renewal. Before you shop it, let me shop it for you, apples to apples.”",
+    "variants": {},
+    "drill": "My rate went up again, so I'm shopping around."
+  },
+  {
+    "slug": "raise-deductible",
+    "objection": "I'll just raise my deductible.",
+    "industry": "insurance",
+    "means": "They want a lower bill and the deductible is the easiest lever they know. It can be smart, or it can leave them stuck after a claim.",
+    "avoid": "Talking them out of it automatically. For some clients a higher deductible is the right call.",
+    "steps": [
+      "Agree it can be a smart move.",
+      "Ask whether they could pay the full deductible tomorrow without strain.",
+      "If not, look at other savings first: discounts, bundling and the coverage they carry."
+    ],
+    "say": "“Thank you so much for sharing. That can be smart. If you had a claim tomorrow, could you cover a thousand dollars without it hurting? If not, let's look at other ways to save first.”",
+    "variants": {},
+    "drill": "I'll just raise my deductible to lower my payment."
+  },
+  {
+    "slug": "app-cheaper",
+    "objection": "An app quoted me cheaper.",
+    "industry": "insurance",
+    "means": "They found a lower number online and want to know if you're overcharging. Often the coverage isn't the same.",
+    "avoid": "Claiming apps are scams. Some quotes really are cheaper for the same coverage, and they'll trust you more if you admit it.",
+    "steps": [
+      "Thank them for comparing.",
+      "Line up limits and deductibles side by side, apples to apples.",
+      "Ask who they'll call when they have a claim at night, and be honest if it's truly the same coverage for less."
+    ],
+    "say": "“Thank you so much for sharing. Let's compare apples to apples, limits and deductibles side by side. And when you have a claim at nine at night, who are you calling: an app, or someone who knows your name?”",
+    "variants": {},
+    "drill": "An app quoted me cheaper than you."
+  },
+  {
+    "slug": "own-facebook-ads",
+    "objection": "I'll just run my own Facebook ads.",
+    "industry": "media",
+    "means": "They think doing it themselves saves money. They often haven't counted the hours it takes away from running the business.",
+    "avoid": "Telling them they'll do it wrong. Owners are proud of what they've built.",
+    "steps": [
+      "Compliment them: they're capable of doing it.",
+      "Ask how much time it takes them each week.",
+      "Help them weigh that time against what their hour is worth as the owner."
+    ],
+    "say": "“Hey, you're smart enough to do it, thank you for that. How much time does it take you each week? Your hour as the owner is worth a lot. Would it make sense to let someone who does this all day handle it?”",
+    "variants": {},
+    "drill": "I'll just run my own Facebook ads."
+  },
+  {
+    "slug": "show-me-return",
+    "objection": "Show me exactly what I'll get back.",
+    "industry": "media",
+    "means": "They've spent money on marketing before without seeing clear results. They want to believe it works but need a reason to.",
+    "avoid": "Promising a specific number of new customers. Brand and community advertising rarely traces in a straight line, and a broken promise ends the relationship.",
+    "steps": [
+      "Thank them for asking. It's a fair question.",
+      "Help them feel what it's like when their name is attached to something joyful in the community.",
+      "Be honest that people won't always say how they found you, then show what you can measure."
+    ],
+    "say": "“Thank you for the opportunity to share that with you. When your business is attached to something joyful in your community, people notice. They look you up, read your reviews and learn your story. They may never tell you exactly how they found you, but you'll feel it.”",
+    "variants": {},
+    "drill": "Show me exactly what I'll get back from this ad."
+  },
+  {
+    "slug": "print-is-dead",
+    "objection": "Nobody reads print anymore.",
+    "industry": "media",
+    "means": "They've heard that digital replaced print and assume their customers don't read magazines. Personal, local content still gets read.",
+    "avoid": "Arguing print versus digital. It isn't a contest they care about. They care about being seen by local customers.",
+    "steps": [
+      "Ask permission to offer an opinion.",
+      "Point out that people keep magazines with their neighbors, kids or church in them.",
+      "Show the distribution numbers before they spend anything."
+    ],
+    "say": "“Thank you so much for sharing. Would you care if I offered an opinion? When's the last time you threw away a magazine with someone you know in it? It's about showing up where your neighbors already pay attention.”",
+    "variants": {},
+    "drill": "Nobody reads print anymore."
   }
 ]

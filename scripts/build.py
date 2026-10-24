@@ -10,7 +10,7 @@ import html, json, re, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://unbrokenclosers.com"
-V = "20261012a"
+V = "20261024a"
 INDEX = (ROOT / "index.html").read_text()
 HEADER = INDEX[INDEX.index('<a class="skip"'):INDEX.index('<main id="main">')]
 FOOTER = INDEX[INDEX.index('<footer class="site-footer">'):INDEX.index('</footer>') + len('</footer>')]
