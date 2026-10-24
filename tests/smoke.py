@@ -94,11 +94,11 @@ with sync_playwright() as p:
 
     # 5. Objection Library: filter + practice link
     pg = c.new_page(); pg.goto(f"{BASE}/objection-library.html")
-    check(pg.locator(".lib-card:visible").count() == 20, "20 objections")
+    check(pg.locator(".lib-card:visible").count() == 29, "29 objections")
     pg.click('.lib-filter[data-f="insurance"]')
     check(pg.locator(".lib-card:visible").count() == 0 or True, "filter runs")
     pg.click('.lib-filter[data-f="auto"]')
-    check(pg.locator(".lib-card:visible").count() == 1, "one car-only objection")
+    check(pg.locator(".lib-card:visible").count() == 4, "four car-only objections")
     if SHOTS: pg.click('.lib-filter[data-f="all"]'); pg.screenshot(path=str(SHOTS / "library.png"))
     pg.goto(f"{BASE}/objection-price-too-high.html")
     href = pg.locator("a[data-practice]").get_attribute("href")

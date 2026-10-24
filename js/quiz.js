@@ -96,7 +96,7 @@
       '<div class="quiz-result"><div class="quiz-score">' + score + "/" + Q.length + "</div>" +
       "<h3>" + rank + "</h3><p>" + msg + "</p>" +
       '<div class="btn-row"><a class="btn btn-stripe" href="objection-card.html">Get the free Objection Armor Card</a>' +
-      '<a class="btn btn-ghost" href="objection-library.html">Browse all ' + 20 + ' objections</a>' +
+      '<a class="btn btn-ghost" href="objection-library.html">Browse the Objection Library</a>' +
       '<a class="btn btn-ghost" href="programs.html#circle">Practice with the Closer’s Circle</a>' +
       '<button type="button" class="btn btn-ghost quiz-again">Take it again</button></div>' +
       '<p style="margin-top:1rem"><button type="button" class="as-tool quiz-share">Copy my score to share</button></p></div>';

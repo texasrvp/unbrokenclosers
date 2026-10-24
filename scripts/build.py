@@ -10,7 +10,7 @@ import html, json, re, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://unbrokenclosers.com"
-V = "20261012a"
+V = "20261024a"
 INDEX = (ROOT / "index.html").read_text()
 HEADER = INDEX[INDEX.index('<a class="skip"'):INDEX.index('<main id="main">')]
 FOOTER = INDEX[INDEX.index('<footer class="site-footer">'):INDEX.index('</footer>') + len('</footer>')]
@@ -165,7 +165,7 @@ def objection_page(o, i):
       <h2>Words You Can Use</h2>
       <div class="lib-say lib-say-main"><span class="lib-tag">Any industry</span><p>{e(o["say"])}</p></div>
       {variants}
-      <p class="small muted">Say it in your own words. The structure matters more than the script: agree, ask, answer the real reason.</p>
+      <p class="small muted">These are the words LJ uses on the floor. Make them yours: the structure matters more than the script. Thank them, ask a couple of questions, answer the real reason.</p>
     </article>
     <aside class="lib-side">
       <div class="panel lib-practice">
