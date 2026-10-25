@@ -99,7 +99,7 @@ function managerSequence({ name, company, result, rec }) {
   const first = esc(name || '').split(' ')[0] || 'there';
   const c = 'manager';
   const rows = result.areas.map((a) => `<tr><td style="padding:6px 0;border-bottom:1px solid #eee">${esc(a.name)}</td><td style="padding:6px 0;border-bottom:1px solid #eee;text-align:right;font-weight:bold">${a.value} / 5</td></tr>`).join('');
-  const pri = result.priorities.map((a, i) => `<p style="margin:0 0 14px"><b>${i + 1}. ${esc(a.name)}</b> (${a.value}/5)<br>${esc(a.fix)}<br><a href="${esc(u(a.link, c))}" style="color:#d9504e">${esc(a.linkText)}</a></p>`).join('');
+  const pri = result.priorities.map((a, i) => `<p style="margin:0 0 14px"><b>${i + 1}. ${esc(a.name)}</b> (${a.value}/5)<br>${esc(a.fix)}<br><a href="${esc(u(a.link, c))}" style="color:#d0202a">${esc(a.linkText)}</a></p>`).join('');
   return [
     {
       day: 0,

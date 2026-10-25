@@ -10,7 +10,7 @@ import html, json, re, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://unbrokenclosers.com"
-V = "20261025a"
+V = "20261025b"
 INDEX = (ROOT / "index.html").read_text()
 HEADER = INDEX[INDEX.index('<a class="skip"'):INDEX.index('<main id="main">')]
 _F = INDEX.index('<footer class="site-footer">')
@@ -60,7 +60,7 @@ def page(name, title, desc, h1, lede, body, trail, scripts=(), extra_ld=(), sect
 <meta name="twitter:title" content="{e(full_title)}">
 <meta name="twitter:description" content="{e(desc)}">
 <meta name="twitter:image" content="{SITE}/img/og-image.png">
-<meta name="theme-color" content="#12233b">
+<meta name="theme-color" content="#08184a">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

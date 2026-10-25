@@ -9,7 +9,7 @@ function page(title, text) {
     statusCode: 200,
     headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
     body: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)} | Unbroken Closers</title>
-<style>body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f4f1;color:#1d2a36}main{max-width:520px;margin:12vh auto;padding:32px 24px;background:#fff;border-radius:6px}h1{font-size:26px;margin:0 0 12px;color:#12233b}p{line-height:1.6}a{color:#d9504e}</style></head>
+<style>body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f4f1;color:#1d2a36}main{max-width:520px;margin:12vh auto;padding:32px 24px;background:#fff;border-radius:6px}h1{font-size:26px;margin:0 0 12px;color:#08184a}p{line-height:1.6}a{color:#d0202a}</style></head>
 <body><main><h1>${esc(title)}</h1><p>${text}</p><p><a href="${SITE}/">Back to Unbroken Closers</a></p></main></body></html>`,
   };
 }

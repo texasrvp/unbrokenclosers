@@ -6,20 +6,20 @@
    Palette pulled from the dealership lot: asphalt, line-paint yellow, chalk, steel, award brass. */
 
 :root {
-  --asphalt: #12233b;
-  --asphalt-2: #1b3150;
-  --asphalt-3: #2b4469;
-  --chalk: #f4f2ec;
+  --asphalt: #08184a;
+  --asphalt-2: #0f2766;
+  --asphalt-3: #1e3d8f;
+  --chalk: #f3f5fa;
   --paper: #ffffff;
-  --ink: #16202c;
+  --ink: #0d1733;
   --steel: #55606d;
-  --rule: #dcd8ce;
-  --stripe: #d9504e;
-  --stripe-light: #f08a84;
-  --blue: #2261a4;
-  --blue-light: #5b93d3;
-  --stripe-deep: #af3544;
-  --brass: #2261a4;
+  --rule: #d6dbe6;
+  --stripe: #e3262f;
+  --stripe-light: #ff6b72;
+  --blue: #1d4fd6;
+  --blue-light: #5b8cff;
+  --stripe-deep: #d0202a;
+  --brass: #1d4fd6;
   --danger: #a3261e;
   --ok: #1f6b3a;
 
@@ -208,7 +208,7 @@ h4 { font-size: var(--step-1); }
 .page-hero::after {
   content: ""; position: absolute; right: 6%; top: -20%; bottom: -20%; width: 10px;
   background: var(--stripe); transform: skewX(-18deg); opacity: 0.9;
-  box-shadow: 70px 0 0 rgba(91,147,211,0.4), 140px 0 0 rgba(91,147,211,0.2);
+  box-shadow: 70px 0 0 rgba(91,140,255,0.45), 140px 0 0 rgba(91,140,255,0.22);
 }
 .page-hero h1 { font-size: clamp(2.6rem, 7vw, 4.5rem); color: var(--paper); max-width: 16ch; }
 .page-hero p { color: #d7dbd6; font-size: var(--step-1); max-width: 46ch; margin: 0; }
@@ -787,11 +787,11 @@ a.article-item:hover h2 { text-decoration: underline; text-decoration-color: var
 
 /* =========================================================
    Book palette: Stripped Bare, But Unbroken
-   Cover royal blue #2261a4, cover red #d9504e, deep red #af3544
+   Flyer palette (Oct 2026): deep navy #08184a, royal #1d4fd6, red #e3262f, button red #d0202a
    ========================================================= */
 .skip { background: var(--stripe-deep); color: #fff; }
 .nav .nav-cta a, .btn-stripe { background: var(--stripe-deep); color: #fff; }
-.nav .nav-cta a:hover, .btn-stripe:hover { background: #c23d47; color: #fff; }
+.nav .nav-cta a:hover, .btn-stripe:hover { background: #b81d26; color: #fff; }
 .section-stripe { background: var(--blue); color: #fff; }
 .section-stripe h2, .section-stripe p, .section-stripe .spots-label { color: #fff; }
 .section-stripe .btn-dark { background: var(--paper); color: var(--ink); }
@@ -805,12 +805,12 @@ a.article-item:hover h2 { text-decoration: underline; text-decoration-color: var
 .video .thumb .play::after { border-left-color: #fff; }
 .slot[aria-pressed="true"] { background: var(--stripe-deep); border-color: var(--stripe-deep); color: #fff; }
 .cal-day[aria-pressed="true"] { background: var(--asphalt); color: #fff; box-shadow: inset 0 -4px 0 var(--stripe); }
-.field input:focus, .field select:focus, .field textarea:focus { box-shadow: 0 0 0 3px rgba(217,80,78,0.35); }
+.field input:focus, .field select:focus, .field textarea:focus { box-shadow: 0 0 0 3px rgba(227,38,47,0.35); }
 :focus-visible { outline-color: var(--blue-light); }
 .score b, .summary b, .scorecard-head b, .armor-front .b, .book-cover .ba, .compare thead th.us,
 .site-footer a:hover, .section-dark .form-status.ok, .site-footer .form-status.ok { color: var(--stripe-light); }
 .section-dark .text-link { color: var(--stripe-light); text-decoration-color: var(--stripe-light); }
-.compare td.us { background: #e9f0f9; }
+.compare td.us { background: #e8eefc; }
 .lot-lines span:nth-child(n+4) { border-left-color: var(--blue-light); opacity: 0.55; }
 .lot-lines::after { border-bottom-color: var(--blue-light); }
 .nav { }
@@ -1244,3 +1244,13 @@ body.nav-open { overflow: hidden; }
 .fear-step { background: var(--chalk); border-left: 4px solid var(--stripe); padding: 0.9rem 1rem; border-radius: var(--radius-sm); }
 .fear-step h4 { margin: 0 0 0.3rem; }
 .fear-step p { margin: 0; }
+
+
+/* Flyer look: royal-blue glow on navy, like the wall print */
+.hero, .page-hero { background: radial-gradient(ellipse 75% 95% at 72% 38%, #1d4fd6 0%, #123a9e 34%, #0a1f5c 68%, #04102f 100%); }
+.section-dark { background: radial-gradient(ellipse 80% 120% at 65% 35%, #123a9e 0%, #0a1f5c 52%, #06143d 100%); }
+.site-footer { background: #04102f; }
+.cred { background: #06143d; border-top-color: #1e3d8f; }
+.hero .lede, .page-hero p { color: #dbe3f7; }
+.hero .fine { color: #b6c2e0; }
+.hero .fine { max-width: 33rem; }
