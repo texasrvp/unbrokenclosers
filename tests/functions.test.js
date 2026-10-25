@@ -44,6 +44,17 @@ test('rep sequence: 5 emails, first sent now, the rest scheduled in order', asyn
   assert.strictEqual(data.ids.length, 4, 'email 1 can cancel the 4 that follow');
 });
 
+test('fear finder result gets its own plan email', async () => {
+  calls = [];
+  const r = await post({ track: 'rep', email: 'fear1@example.com', name: 'Sam', area: 'fear_closing' });
+  assert.strictEqual(r.statusCode, 200, r.body);
+  const first = calls.filter((c) => c.url === 'https://api.resend.com/emails').pop().body;
+  assert.match(first.subject, /The Fear of Closing/);
+  assert.match(first.html, /You took the Fear Finder/);
+  assert.match(first.html, /Coach LJ/);
+  assert.doesNotMatch(first.html, /Stephens/);
+});
+
 test('manager scorecard: report + 4 follow-ups + note to LJ', async () => {
   calls = [];
   const r = await post({ track: 'manager', email: 'gm@example.com', name: 'Pat Smith', company: 'Example Ford', team_size: '6 to 15', answers: [1, 2, 3, 4, 5, 1, 2, 3, 4, 5] });

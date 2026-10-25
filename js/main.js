@@ -127,7 +127,7 @@
       document.querySelectorAll(".portrait").forEach(function (box) {
         if (box.querySelector("img")) return;
         var img = document.createElement("img");
-        img.src = cfg.photo; img.alt = "LJ Stephens"; img.width = 800; img.height = 1000; img.loading = "lazy";
+        img.src = cfg.photo; img.alt = "Coach LJ"; img.width = 800; img.height = 1000; img.loading = "lazy";
         box.appendChild(img);
         var fb = box.querySelector("[data-photo-fallback]"); if (fb) fb.hidden = true;
       });
@@ -229,7 +229,7 @@
 
   /* ---------- Follow-up emails (Netlify function + Resend) ---------- */
   // Forms that start the 5-email follow-up. Netlify Forms still records every signup.
-  var NURTURE = { newsletter: "rep", assessment: "rep", "objection-card": "rep" };
+  var NURTURE = { newsletter: "rep", assessment: "rep", "objection-card": "rep", fears: "rep" };
   window.UC_nurture = function (form, extra) {
     var track = NURTURE[form.getAttribute("name")];
     if (!cfg.emailFollowUp || !track) return Promise.resolve(null);

@@ -95,7 +95,7 @@ OCTOBER 2026 UPGRADES: SETUP CHECKLIST
 
 2. FOLLOW-UP EMAILS (Netlify → Site settings → Environment variables), then redeploy
    RESEND_API_KEY       your Resend key
-   UC_EMAIL_FROM        e.g. LJ Stephens <lj@unbrokenclosers.com>  (verify unbrokenclosers.com in Resend → Domains first)
+   UC_EMAIL_FROM        e.g. Coach LJ <lj@unbrokenclosers.com>  (verify unbrokenclosers.com in Resend → Domains first)
    UC_NOTIFY_EMAIL      where scorecard leads go (default hello@unbrokenclosers.com)
    UC_MAILING_ADDRESS   a mailing address or P.O. box (required in marketing emails by CAN-SPAM)
    Sequences: reps (assessment, Armor Card, newsletter) and managers (Team Readiness Scorecard), 5 emails each.
@@ -106,7 +106,7 @@ OCTOBER 2026 UPGRADES: SETUP CHECKLIST
 5. TESTIMONIALS: send clients to /results.html. Approved quotes go in config.js → testimonials.
 6. CLOSER OF THE MONTH WALL: add winners to config.js → hallOfFame (with their OK).
 7. OBJECTION LIBRARY: edit data/library.json, then run: python3 scripts/build.py
-8. SPEAKER ONE-SHEET: downloads/lj-stephens-speaker-one-sheet.pdf (source: scripts/one-sheet.html).
+8. SPEAKER ONE-SHEET: downloads/coach-lj-speaker-one-sheet.pdf (source: scripts/one-sheet.html).
 9. GA4 events now sent: generate_lead, booking_request, booking_scheduled, book_offer_claim, scorecard_complete,
    assessment_complete, skool_join_click, practice_click, file_download, video_play.
    In GA4 → Admin → Events, mark generate_lead, booking_scheduled and skool_join_click as key events.

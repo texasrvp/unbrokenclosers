@@ -1,0 +1,86 @@
+[
+  {
+    "key": "fear_money",
+    "slug": "money",
+    "name": "The Fear of Making Money",
+    "short": "Making money",
+    "says": "“Who am I to ask for that much?”",
+    "roots": "Maybe you grew up hearing that money is the root of all evil, or that people with money are greedy. Maybe money was the reason for the fights in your house, or you’d be the first in your family to earn more, and part of you feels guilty about it.",
+    "floor": "You discount before anyone asks. You rush past the price. You feel a little guilty about your commission, and after a big month you somehow slow down.",
+    "cost": "You leave money on the table every week. And if you can’t make a living, you can’t stay in the business long enough to help the people who need you.",
+    "step": "Write down three things money would let you do for the people you love. Then present the full price first on every deal this week, out loud and without apologizing.",
+    "items": ["Talking about price or payments makes me uncomfortable.", "When I have a great month, part of me feels like I don’t deserve it."]
+  },
+  {
+    "key": "fear_success",
+    "slug": "success",
+    "name": "The Fear of Being Successful",
+    "short": "Being successful",
+    "says": "“If I make it, people will change on me.”",
+    "roots": "Maybe you watched someone who “made it” get resented by the people around them. Maybe you were told not to get too big for your britches. Or part of you worries that if you succeed, someone will find out you don’t really belong there.",
+    "floor": "You coast after a good month. You set goals you know you can hit. You avoid the top of the board, and you pull back right before a breakthrough.",
+    "cost": "You plateau. You stay average when you were built for more, and the people you could have led never get to see what’s possible.",
+    "step": "Write one goal that makes your heart race, the kind you’d write on a million-dollar bill. Tell one person you trust what it is.",
+    "items": ["I set goals I know I can hit instead of ones that stretch me.", "After a good month, I tend to coast."]
+  },
+  {
+    "key": "fear_cold_calling",
+    "slug": "cold-calling",
+    "name": "The Fear of Cold-Calling",
+    "short": "Cold-calling",
+    "says": "“I don’t want to bother them.”",
+    "roots": "Maybe you were raised not to talk to strangers or impose on people. Maybe the phone ringing at your house meant bad news or bill collectors. Or someone hung up on you early, and it stuck.",
+    "floor": "You find busywork before you dial. You wait for walk-ins and leads to come to you. When you do call, you rush the first line and hope they say no fast.",
+    "cost": "Your income depends on luck and on who walks in. Slow weeks hit harder, and you can’t control your own month.",
+    "step": "Write your first sentence down. Make ten calls before 10 a.m., and tell yourself before each one: “I’m not bothering them. I’m offering help.”",
+    "items": ["I find other things to do before I pick up the phone.", "I’d rather wait for customers to come to me than reach out first."]
+  },
+  {
+    "key": "fear_prospecting",
+    "slug": "prospecting",
+    "name": "The Fear of Prospecting",
+    "short": "Prospecting",
+    "says": "“I don’t want to be that salesperson.”",
+    "roots": "Maybe someone in your family burned relationships pushing something on everybody. Maybe you were taught it’s rude to talk about work, or you’re worried about what people will think of you.",
+    "floor": "You don’t tell people what you do. You keep your job off social media. You skip the networking event, and your friends buy from somebody else.",
+    "cost": "You miss the easiest sales there are: people who already know, like and trust you.",
+    "step": "Tell five people this week what you do and who you help. No pitch, just a conversation.",
+    "items": ["Most people I know don’t really know what I sell.", "I worry about what people will think if I mention my work."]
+  },
+  {
+    "key": "fear_winning",
+    "slug": "winning",
+    "name": "The Fear of Winning",
+    "short": "Winning",
+    "says": "“I’m just happy to be here.”",
+    "roots": "Maybe you were compared to a brother or sister and learned to stay quiet. Maybe standing out got you teased. Or you lost so many times that not trying all the way felt safer than trying and losing.",
+    "floor": "You don’t go all in on the contest. You let other reps take the good ups. You cheer for everybody but yourself.",
+    "cost": "You never collect the wins that build real confidence, so every month feels like starting over.",
+    "step": "Pick one number to win this week, out loud, in front of the team. When you hit it, celebrate it.",
+    "items": ["When there’s a contest, I don’t really try to win it.", "Another rep’s big month makes me feel worse about mine."]
+  },
+  {
+    "key": "fear_referrals",
+    "slug": "referrals",
+    "name": "The Fear of Asking for Referrals",
+    "short": "Referrals",
+    "says": "“I don’t want to impose.”",
+    "roots": "Maybe you learned that asking for help is a sign of weakness. Maybe pride runs in your family, or you asked someone for a favor once and they made you feel small.",
+    "floor": "You never ask. You hope happy customers will send people your way on their own. Most of them mean to, and most of them don’t.",
+    "cost": "You lose the warmest, cheapest and fastest business there is, from people who already love you.",
+    "step": "At the happiest moment, at delivery or when a claim gets paid, ask: “Who else do you know who’d want an experience like this?” Then stop talking.",
+    "items": ["I rarely ask happy customers for referrals.", "I’d rather struggle alone than ask for help."]
+  },
+  {
+    "key": "fear_closing",
+    "slug": "closing",
+    "name": "The Fear of Closing",
+    "short": "Closing",
+    "says": "“If they say no, it means I’m not enough.”",
+    "roots": "Maybe “no” meant more than no when you were growing up. Maybe you were called pushy for asking for what you wanted. Somewhere, a customer’s “no” started to feel like a judgment on you.",
+    "floor": "You present forever and wait for the customer to say yes. You give them an easy way out. You talk right past the moment you should have asked.",
+    "cost": "You do all the work, and somebody else closes the deal. Usually a competitor who simply asked.",
+    "step": "Ask one clear closing question in every presentation this week. Then be quiet and let them answer.",
+    "items": ["I sometimes avoid asking for the sale so I don’t hear no.", "When a customer says no, it feels personal."]
+  }
+]

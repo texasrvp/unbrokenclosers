@@ -10,12 +10,15 @@ import html, json, re, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://unbrokenclosers.com"
-V = "20261024b"
+V = "20261025a"
 INDEX = (ROOT / "index.html").read_text()
 HEADER = INDEX[INDEX.index('<a class="skip"'):INDEX.index('<main id="main">')]
-FOOTER = INDEX[INDEX.index('<footer class="site-footer">'):INDEX.index('</footer>') + len('</footer>')]
+_F = INDEX.index('<footer class="site-footer">')
+FOOTER = INDEX[_F:INDEX.index('</footer>', _F) + len('</footer>')]
+assert 'site-footer' in FOOTER and len(FOOTER) > 1000, 'footer not found in index.html'
 LIB = json.loads((ROOT / "data/library.json").read_text())
 SC = json.loads((ROOT / "data/scorecard.json").read_text())
+FEARS = json.loads((ROOT / "data/fears.json").read_text())
 e = html.escape
 
 IND_NAMES = {"general": "Any industry", "auto": "Car sales", "fi": "F&I", "insurance": "Insurance", "media": "Media sales", "home": "Home services"}
@@ -195,7 +198,7 @@ def objection_page(o, i):
 </section>
 """
     art = ld({"@context": "https://schema.org", "@type": "Article", "headline": f"How to handle “{o['objection']}”",
-              "description": o["means"], "author": {"@type": "Person", "name": "Larry \"LJ\" Stephens", "url": SITE + "/about.html"},
+              "description": o["means"], "author": {"@type": "Person", "name": "Coach LJ", "url": SITE + "/about.html"},
               "publisher": {"@id": SITE + "/#org"}, "mainEntityOfPage": SITE + "/" + slug, "image": SITE + "/img/og-image.png"})
     title = f"How to Handle “{o['objection'].rstrip('.')}”"
     return page(slug, title, f"What “{o['objection']}” really means, what not to say, and three steps to handle it, with words you can use and a free practice drill.",
@@ -367,6 +370,68 @@ built.append(page("wall.html", "Closer of the Month Wall",
      "Meet the salespeople who earned Closer of the Month on Unbroken Closers teams, and nominate the next one.",
      "Closer of the Month Wall", "The reps who showed up, did the work and earned it. Recognized in front of their team, and here.",
      body, [("Home", "index.html"), ("Awards", "awards.html"), ("Closer of the Month Wall", "wall.html")], section="awards.html"))
+
+
+# ---------------------------------------------------------------- The 7 Sales Fears + Fear Finder
+fear_sections = "".join(f"""
+    <article class="fear" id="{f['slug']}">
+      <div class="fear-head"><span class="fear-num">{i + 1}</span><div><h2>{e(f['name'])}</h2><p class="fear-says">{e(f['says'])}</p></div></div>
+      <div class="fear-grid">
+        <div><h3>Where it can come from</h3><p>{e(f['roots'])}</p></div>
+        <div><h3>What it does on the sales floor</h3><p>{e(f['floor'])}</p></div>
+        <div><h3>What it costs you</h3><p>{e(f['cost'])}</p></div>
+        <div class="fear-step"><h3>Your first step</h3><p>{e(f['step'])}</p></div>
+      </div>
+    </article>""" for i, f in enumerate(FEARS))
+toc = "".join(f'<a href="#{f["slug"]}">{e(f["short"])}</a>' for f in FEARS)
+body = f"""
+<section class="section on-light">
+  <div class="wrap fears-intro">
+    <div class="meaning-inline">
+      <p>Every one of us carries something from the past: the house we grew up in, the neighborhood, the family, a loss, a failure. It shapes how we think, how we talk and how we show up in front of a customer. Left alone, it turns into fear, and fear turns into habits that cap your income.</p>
+      <p><b>Unbroken doesn’t mean you never broke. It means you refused to let what happened in your life define you.</b></p>
+    </div>
+    <div class="panel ff" id="fear-finder">
+      <h2>The Fear Finder</h2>
+      <p class="muted">14 quick statements, about two minutes. Answer for how you really sell, not how you wish you did.</p>
+      <form id="ff-quiz" novalidate><div id="ff-items"></div>
+        <p class="form-status" id="ff-status" role="status"></p>
+        <button class="btn btn-stripe" type="submit">Show me my top fear</button>
+      </form>
+      <div id="ff-result" hidden tabindex="-1"></div>
+      <form class="inline-form ff-email" name="fears" method="POST" data-netlify="true" netlify-honeypot="company_url" data-ajax data-inline data-success="Sent. Check your inbox for your plan." hidden novalidate>
+        <input type="hidden" name="form-name" value="fears">
+        <input type="hidden" name="top_key">
+        <input type="hidden" name="top_fears">
+        <p class="hidden-field"><label>Leave this empty <input name="company_url"></label></p>
+        <label class="hidden-field" for="ff-name">First name</label><input id="ff-name" name="name" placeholder="First name" autocomplete="given-name" required>
+        <label class="hidden-field" for="ff-mail">Email</label><input id="ff-mail" name="email" type="email" placeholder="Your email" autocomplete="email" required>
+        <button class="btn btn-stripe" type="submit">Email me my plan</button>
+        <p class="form-status small" role="status" style="flex-basis:100%;margin:0"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white on-light">
+  <div class="wrap">
+    <nav class="fear-toc" aria-label="The 7 fears">{toc}</nav>
+    {fear_sections}
+    <p class="note" style="margin-top:2rem">Coach LJ is a sales coach, not a counselor. This page is about how old experiences show up in your selling. If something from your past feels heavier than that, please talk to a licensed counselor. In crisis, call or text 988. <a href="support.html">Find support</a>.</p>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap band">
+    <div><h2>Work on It With People Who Get It</h2><p class="mb-0">The Closer’s Circle meets every Tuesday. Bring your top fear, and we’ll work on it together.</p></div>
+    <a class="btn btn-stripe" data-link="skoolJoinUrl" href="https://www.skool.com/unbroken-closers-7322/about">Join the Closer’s Circle</a>
+  </div>
+</section>
+"""
+built.append(page("fears.html", "The 7 Sales Fears That Cap Your Income",
+     "Fear of making money, success, cold-calling, prospecting, winning, referrals and closing: where each comes from, what it does on the sales floor and your first step. Take the free Fear Finder.",
+     "The 7 Sales Fears", "What happened in your past can quietly cap your income. Find the fear that’s holding you back, and take your first step past it.",
+     body, [("Home", "index.html"), ("The 7 Sales Fears", "fears.html")], scripts=["fears.js"]))
 
 # ---------------------------------------------------------------- Share your results
 body = """
