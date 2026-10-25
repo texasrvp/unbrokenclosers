@@ -2,7 +2,11 @@
 // so nobody can use the signup form to send their own text to someone else.
 
 const { SITE, esc, P, H, BTN, BOX, SIGN } = require('./mail');
-const AREAS = require('../../../data/assessment-areas.json');
+const BASE_AREAS = require('../../../data/assessment-areas.json');
+const FEARS = require('../../../data/fears.json');
+// The 7 Sales Fears (Fear Finder) share the same email plan as the assessment areas.
+const AREAS = Object.assign({}, BASE_AREAS);
+for (const f of FEARS) AREAS[f.key] = { name: f.name, says: f.says, story: f.roots + ' ' + f.floor, step: f.step, fear: true };
 
 const u = (path, campaign) => `${SITE}/${path}${path.includes('?') ? '&' : '?'}utm_source=email&utm_medium=nurture&utm_campaign=${campaign}`;
 const SKOOL = process.env.UC_SKOOL_JOIN_URL || 'https://www.skool.com/unbroken-closers-7322/about';
@@ -19,7 +23,7 @@ function repSequence({ name, area }) {
       preheader: a ? 'One small step you can take this week.' : 'A two-minute sales lesson, starting now.',
       blocks: a ? [
         P(`Hi ${first},`),
-        P(`You asked for a plan for your top area from the Unbroken Assessment: <b>${esc(a.name)}</b>.`),
+        P(a.fear ? `You took the Fear Finder, and the fear showing up most for you is <b>${esc(a.name)}</b>. You’re not alone. Every closer I know has fought at least one of these.` : `You asked for a plan for your top area from the Unbroken Assessment: <b>${esc(a.name)}</b>.`),
         BOX(`<b>What it sounds like:</b> ${esc(a.says)}`),
         P(esc(a.story)),
         H('Your step this week'),
@@ -62,12 +66,12 @@ function repSequence({ name, area }) {
     },
     {
       day: 6,
-      subject: a ? `Your first lesson is waiting: ${a.name}` : 'Practice with people who get it',
+      subject: a && !a.fear ? `Your first lesson is waiting: ${a.name}` : 'Practice with people who get it',
       preheader: 'Live coaching every Tuesday, plus practice between calls.',
       blocks: [
         P(`Hi ${first},`),
         P('Reading about sales helps. Practicing with other closers, and getting coached on it live, is what actually changes your numbers.'),
-        P(`That’s the Closer’s Circle: live coaching calls every Tuesday, the full Rebuttal Vault, the Inner Objections course${a ? ` (your first lesson is “${esc(a.name)}”)` : ''}, monthly challenges and a group that pushes you.`),
+        P(`That’s the Closer’s Circle: live coaching calls every Tuesday, the full Rebuttal Vault, the Inner Objections course${a && !a.fear ? ` (your first lesson is “${esc(a.name)}”)` : ''}, monthly challenges and a group that pushes you.`),
         P('It’s $79 a month. The first 10 founding members pay $49 a month, locked in for as long as they stay. Cancel any time.'),
         BTN(SKOOL, 'Join the Closer’s Circle'),
         SIGN,
@@ -95,7 +99,7 @@ function managerSequence({ name, company, result, rec }) {
   const first = esc(name || '').split(' ')[0] || 'there';
   const c = 'manager';
   const rows = result.areas.map((a) => `<tr><td style="padding:6px 0;border-bottom:1px solid #eee">${esc(a.name)}</td><td style="padding:6px 0;border-bottom:1px solid #eee;text-align:right;font-weight:bold">${a.value} / 5</td></tr>`).join('');
-  const pri = result.priorities.map((a, i) => `<p style="margin:0 0 14px"><b>${i + 1}. ${esc(a.name)}</b> (${a.value}/5)<br>${esc(a.fix)}<br><a href="${esc(u(a.link, c))}" style="color:#d9504e">${esc(a.linkText)}</a></p>`).join('');
+  const pri = result.priorities.map((a, i) => `<p style="margin:0 0 14px"><b>${i + 1}. ${esc(a.name)}</b> (${a.value}/5)<br>${esc(a.fix)}<br><a href="${esc(u(a.link, c))}" style="color:#d0202a">${esc(a.linkText)}</a></p>`).join('');
   return [
     {
       day: 0,

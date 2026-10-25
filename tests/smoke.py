@@ -32,6 +32,7 @@ with sync_playwright() as p:
         pg.goto(f"{BASE}/{name}", wait_until="load")
         pg.wait_for_timeout(150)
         check(not errs, f"{name}: JS error {errs[:1]}")
+        if name not in ("thanks.html",): check(pg.locator("footer.site-footer").count() == 1, f"{name}: has the site footer")
         over = pg.evaluate("document.documentElement.scrollWidth - window.innerWidth")
         check(over <= 1, f"{name}: {over}px sideways scroll on phone")
         pg.close()
@@ -105,6 +106,23 @@ with sync_playwright() as p:
     check(href.startswith("https://freshupleads.com/train?objection=Your%20price%20is%20too%20high."), "practice link: " + href)
     check(pg.locator(".lib-say").count() == 3, "general + 2 industry versions")
     if SHOTS: pg.screenshot(path=str(SHOTS / "objection-page.png"), full_page=True)
+    pg.close()
+
+    # 5b. Fear Finder: answer all 14, see a top fear, email it (API mocked)
+    sent.clear()
+    pg = c.new_page(); errs = []; pg.on("pageerror", lambda e: errs.append(str(e)))
+    pg.goto(f"{BASE}/fears.html"); pg.wait_for_selector("#ff-items .sc-q")
+    check(pg.locator("#ff-items .sc-q").count() == 14, "14 Fear Finder statements")
+    check(pg.locator("article.fear").count() == 7, "7 fears on the page")
+    for i in range(14):
+        v = 5 if i in (6, 13) else 2   # statements 7 and 14 belong to fear 7 (closing)
+        pg.locator(f'input[name="f{i}"][value="{v}"]').check(force=True)
+    pg.click("#ff-quiz button[type=submit]"); pg.wait_for_selector("#ff-result .ff-top")
+    check("Closing" in pg.inner_text("#ff-result h3"), "top fear is closing: " + pg.inner_text("#ff-result h3"))
+    f = pg.locator("form.ff-email"); f.locator('[name="name"]').fill("Sam"); f.locator('[name="email"]').fill("sam@example.com"); f.locator("button[type=submit]").click()
+    pg.wait_for_timeout(700)
+    check(sent.get("nurture", {}).get("area") == "fear_closing", "fear key sent to follow-up emails: " + str(sent.get("nurture")))
+    check(not errs, f"fear finder errors {errs}")
     pg.close()
 
     # 6. ROI calculator

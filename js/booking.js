@@ -69,7 +69,7 @@
       var ns = "uc" + key;
       window.Cal("init", ns, { origin: origin });
       window.Cal.ns[ns]("inline", { elementOrSelector: "#cal-" + key, calLink: link, config: { layout: "month_view", theme: "light" } });
-      window.Cal.ns[ns]("ui", { hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { light: { "cal-brand": "#d9504e" } } });
+      window.Cal.ns[ns]("ui", { hideEventTypeDetails: false, layout: "month_view", cssVarsPerTheme: { light: { "cal-brand": "#d0202a" } } });
       window.Cal.ns[ns]("on", { action: "bookingSuccessful", callback: function () {
         if (window.UC_track) { window.UC_track("booking_scheduled", { session: key }); window.UC_track("generate_lead", { source: "booking", session: key }); }
       } });

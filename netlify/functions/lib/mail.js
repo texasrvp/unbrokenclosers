@@ -2,7 +2,7 @@
 //
 // Netlify env vars (Site settings → Environment variables):
 //   RESEND_API_KEY      required to send anything
-//   UC_EMAIL_FROM       e.g. "LJ Stephens <lj@unbrokenclosers.com>" (the domain must be verified in Resend)
+//   UC_EMAIL_FROM       e.g. "Coach LJ <lj@unbrokenclosers.com>" (the domain must be verified in Resend)
 //   UC_NOTIFY_EMAIL     where new manager leads are sent (default hello@unbrokenclosers.com)
 //   UC_MAILING_ADDRESS  your mailing address or P.O. box; US law (CAN-SPAM) wants one in marketing emails
 //   UC_EMAIL_SECRET     optional; signs unsubscribe links (falls back to a hash of the Resend key)
@@ -10,7 +10,7 @@
 const crypto = require('crypto');
 
 const SITE = (process.env.URL || 'https://unbrokenclosers.com').replace(/\/$/, '');
-const FROM = () => process.env.UC_EMAIL_FROM || 'LJ Stephens <hello@unbrokenclosers.com>';
+const FROM = () => process.env.UC_EMAIL_FROM || 'Coach LJ <hello@unbrokenclosers.com>';
 const NOTIFY = () => process.env.UC_NOTIFY_EMAIL || 'hello@unbrokenclosers.com';
 
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -44,7 +44,7 @@ function layout({ preheader, blocks, unsubUrl }) {
 <span style="display:none;max-height:0;overflow:hidden">${esc(preheader || '')}</span>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f1"><tr><td align="center" style="padding:24px 12px">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;border-radius:6px;overflow:hidden">
-<tr><td style="background:#12233b;padding:16px 24px;color:#f3f4f1;font-weight:bold;letter-spacing:1px;font-size:14px;text-transform:uppercase">Unbroken Closers</td></tr>
+<tr><td style="background:#08184a;padding:16px 24px;color:#f3f4f1;font-weight:bold;letter-spacing:1px;font-size:14px;text-transform:uppercase">Unbroken Closers</td></tr>
 <tr><td style="padding:24px;font-size:16px;line-height:1.6">${blocks.join('\n')}</td></tr>
 <tr><td style="padding:16px 24px;background:#f7f7f4;font-size:12px;line-height:1.5;color:#6b7680">
 Unbroken Closers · Field sales coaching · Veteran-owned<br>${addr}
@@ -56,10 +56,10 @@ ${unsubUrl ? `<a href="${esc(unsubUrl)}" style="color:#6b7680">Unsubscribe</a> �
 
 // Building blocks for email bodies
 const P = (t) => `<p style="margin:0 0 16px">${t}</p>`;
-const H = (t) => `<h2 style="margin:0 0 12px;font-size:22px;line-height:1.25;color:#12233b">${t}</h2>`;
-const BTN = (href, label) => `<p style="margin:20px 0"><a href="${esc(href)}" style="display:inline-block;background:#d9504e;color:#ffffff;font-weight:bold;padding:12px 20px;border-radius:4px;text-decoration:none">${esc(label)}</a></p>`;
-const BOX = (t) => `<div style="margin:0 0 16px;padding:14px 16px;background:#f3f4f1;border-left:4px solid #d9504e">${t}</div>`;
-const SIGN = P('LJ<br><span style="color:#6b7680;font-size:14px">LJ Stephens · Unbroken Closers</span>');
+const H = (t) => `<h2 style="margin:0 0 12px;font-size:22px;line-height:1.25;color:#08184a">${t}</h2>`;
+const BTN = (href, label) => `<p style="margin:20px 0"><a href="${esc(href)}" style="display:inline-block;background:#d0202a;color:#ffffff;font-weight:bold;padding:12px 20px;border-radius:4px;text-decoration:none">${esc(label)}</a></p>`;
+const BOX = (t) => `<div style="margin:0 0 16px;padding:14px 16px;background:#f3f4f1;border-left:4px solid #d0202a">${t}</div>`;
+const SIGN = P('Coach LJ<br><span style="color:#6b7680;font-size:14px">Unbroken Closers</span>');
 
 function textVersion(html) {
   return html.replace(/<br\s*\/?>/gi, '\n').replace(/<\/(p|h2|div|tr)>/gi, '\n\n')
